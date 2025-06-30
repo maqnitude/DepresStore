@@ -1,0 +1,25 @@
+using DepresStore.SharedKernel;
+
+namespace DepresStore.Modules.Catalog.Core.ProductAggregate
+{
+    public class ProductId : ValueObject
+    {
+        public Guid Value { get; private set; }
+
+        // For EF Core
+        private ProductId() { }
+
+        public ProductId(Guid value)
+        {
+            if (value == Guid.Empty)
+            {
+                throw new ArgumentException("ProductId value cannot be empty", nameof(value));
+            }
+        }
+
+        protected override IEnumerable<object> GetEqualityComponents()
+        {
+            yield return Value;
+        }
+    }
+}
