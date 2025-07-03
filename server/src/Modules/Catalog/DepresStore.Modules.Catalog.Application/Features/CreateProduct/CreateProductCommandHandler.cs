@@ -1,0 +1,21 @@
+using DepresStore.SharedKernel.Cqrs;
+using Microsoft.Extensions.Logging;
+
+namespace DepresStore.Modules.Catalog.Application.Features.CreateProduct
+{
+    public class CreateProductCommandHandler : ICommandHandler<CreateProductCommand>
+    {
+        private readonly ILogger<CreateProductCommandHandler> _logger;
+
+        public CreateProductCommandHandler(ILogger<CreateProductCommandHandler> logger)
+        {
+            _logger = logger;
+        }
+
+        public Task HandleAsync(CreateProductCommand command, CancellationToken cancellationToken)
+        {
+            _logger.LogInformation("CreateProductCommand handled");
+            return Task.CompletedTask;
+        }
+    }
+}
