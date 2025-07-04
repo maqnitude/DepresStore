@@ -1,6 +1,6 @@
 using DepresStore.Shared.Kernel.Mediator;
 
-namespace DepresStore.Infrastructure
+namespace DepresStore.Shared.Infrastructure
 {
     public class Mediator : IMediator
     {

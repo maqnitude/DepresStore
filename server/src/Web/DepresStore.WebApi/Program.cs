@@ -1,5 +1,5 @@
-using DepresStore.Infrastructure;
 using DepresStore.Modules.Catalog.Application.Features.CreateProduct;
+using DepresStore.Shared.Infrastructure;
 using DepresStore.Shared.Kernel.Mediator;
 
 var builder = WebApplication.CreateBuilder(args);
