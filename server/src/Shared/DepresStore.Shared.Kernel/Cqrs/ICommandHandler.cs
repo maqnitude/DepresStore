@@ -1,6 +1,6 @@
-using DepresStore.SharedKernel.Mediator;
+using DepresStore.Shared.Kernel.Mediator;
 
-namespace DepresStore.SharedKernel.Cqrs
+namespace DepresStore.Shared.Kernel.Cqrs
 {
     public interface ICommandHandler<in TRequest, TResponse> : IRequestHandler<TRequest, TResponse>
         where TRequest : IRequest<TResponse>

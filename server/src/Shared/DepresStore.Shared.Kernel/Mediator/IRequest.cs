@@ -1,4 +1,4 @@
-namespace DepresStore.SharedKernel.Mediator
+namespace DepresStore.Shared.Kernel.Mediator
 {
     /// <summary>
     /// Represents a request with a response.

@@ -1,4 +1,4 @@
-namespace DepresStore.SharedKernel.Mediator
+namespace DepresStore.Shared.Kernel.Mediator
 {
     public interface IMediator
     {

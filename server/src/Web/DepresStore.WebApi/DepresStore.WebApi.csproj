@@ -12,7 +12,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\Shared\DepresStore.Infrastructure\DepresStore.Infrastructure.csproj" />
+    <ProjectReference Include="..\..\Shared\DepresStore.Shared.Infrastructure\DepresStore.Shared.Infrastructure.csproj" />
     <ProjectReference Include="..\..\Modules\Catalog\DepresStore.Modules.Catalog.Application\DepresStore.Modules.Catalog.Application.csproj" />
   </ItemGroup>
 

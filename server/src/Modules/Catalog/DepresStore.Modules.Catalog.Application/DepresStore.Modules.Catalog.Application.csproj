@@ -1,11 +1,11 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <ItemGroup>
-    <ProjectReference Include="..\..\..\Shared\DepresStore.SharedKernel\DepresStore.SharedKernel.csproj" />
+    <PackageReference Include="Microsoft.Extensions.Logging" Version="8.0.*" />
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="Microsoft.Extensions.Logging" Version="8.0.*" />
+    <ProjectReference Include="..\DepresStore.Modules.Catalog.Core\DepresStore.Modules.Catalog.Core.csproj" />
   </ItemGroup>
 
   <PropertyGroup>

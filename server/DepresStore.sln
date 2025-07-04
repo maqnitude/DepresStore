@@ -7,7 +7,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{2DF33220-C0C
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Shared", "Shared", "{213FFECB-9844-413E-B0DC-7A20AD80991C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DepresStore.SharedKernel", "src\Shared\DepresStore.SharedKernel\DepresStore.SharedKernel.csproj", "{8AD9A8D4-F9C3-444A-8CA4-B9EF62EFC982}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DepresStore.Shared.Kernel", "src\Shared\DepresStore.Shared.Kernel\DepresStore.Shared.Kernel.csproj", "{8AD9A8D4-F9C3-444A-8CA4-B9EF62EFC982}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Modules", "Modules", "{402DDD95-BEFB-452E-8D26-1A5AFAFBE0F7}"
 EndProject
@@ -19,7 +19,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DepresStore.Modules.Catalog
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DepresStore.Modules.Catalog.Application", "src\Modules\Catalog\DepresStore.Modules.Catalog.Application\DepresStore.Modules.Catalog.Application.csproj", "{35468642-0D11-47D7-90D6-8D25D46F05E8}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DepresStore.Infrastructure", "src\Shared\DepresStore.Infrastructure\DepresStore.Infrastructure.csproj", "{87B0897C-0DC7-4340-85F2-A1868B5C2A83}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DepresStore.Shared.Infrastructure", "src\Shared\DepresStore.Shared.Infrastructure\DepresStore.Shared.Infrastructure.csproj", "{87B0897C-0DC7-4340-85F2-A1868B5C2A83}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Web", "Web", "{32486570-955A-42DD-9490-D49674AA97BE}"
 EndProject

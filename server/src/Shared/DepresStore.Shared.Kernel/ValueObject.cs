@@ -1,4 +1,4 @@
-namespace DepresStore.SharedKernel
+namespace DepresStore.Shared.Kernel
 {
     public abstract class ValueObject : IEquatable<ValueObject>
     {

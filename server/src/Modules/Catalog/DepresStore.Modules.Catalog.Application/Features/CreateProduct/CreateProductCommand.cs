@@ -1,4 +1,4 @@
-using DepresStore.SharedKernel.Cqrs;
+using DepresStore.Shared.Kernel.Cqrs;
 
 namespace DepresStore.Modules.Catalog.Application.Features.CreateProduct
 {

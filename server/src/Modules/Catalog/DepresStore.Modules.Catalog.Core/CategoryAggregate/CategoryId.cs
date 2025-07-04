@@ -1,4 +1,4 @@
-using DepresStore.SharedKernel;
+using DepresStore.Shared.Kernel;
 
 namespace DepresStore.Modules.Catalog.Core.CategoryAggregate
 {

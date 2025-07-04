@@ -1,4 +1,4 @@
-namespace DepresStore.SharedKernel.Mediator
+namespace DepresStore.Shared.Kernel.Mediator
 {
     /// <summary>
     /// Represents a void type, since <see cref="System.Void"/> is not a valid type in C#.

@@ -1,6 +1,6 @@
-using DepresStore.SharedKernel.Mediator;
+using DepresStore.Shared.Kernel.Mediator;
 
-namespace DepresStore.SharedKernel.Cqrs
+namespace DepresStore.Shared.Kernel.Cqrs
 {
     /// <summary>
     /// Defines a command request with a response.
