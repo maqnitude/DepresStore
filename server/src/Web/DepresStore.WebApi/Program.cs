@@ -1,5 +1,7 @@
 using DepresStore.Modules.Catalog.Application.Features.CreateProduct;
+using DepresStore.Modules.Catalog.Application.Features.GetAllProducts;
 using DepresStore.Shared.Infrastructure;
+using DepresStore.Shared.Kernel.Cqrs;
 using DepresStore.Shared.Kernel.Mediator;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -10,6 +12,11 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
 builder.Services.AddScoped<IMediator, Mediator>();
+
+// Add query request handlers
+builder.Services.AddScoped<IRequestHandler<GetAllProductsQuery, PaginatedList<ProductDto>>, GetAllProductsQueryHandler>();
+
+// Add command request handlers
 builder.Services.AddScoped<IRequestHandler<CreateProductCommand>, CreateProductCommandHandler>();
 
 var app = builder.Build();
@@ -42,6 +49,12 @@ app.MapGet("/weatherforecast", () =>
 })
 .WithName("GetWeatherForecast")
 .WithOpenApi();
+
+app.MapGet("/products", async (IMediator mediator) =>
+{
+    var result = await mediator.SendAsync(new GetAllProductsQuery());
+    return Results.Ok(result);
+});
 
 app.MapPost("/products", async (IMediator mediator) =>
 {
