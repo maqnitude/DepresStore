@@ -14,10 +14,10 @@ builder.Services.AddSwaggerGen();
 builder.Services.AddScoped<IMediator, Mediator>();
 
 // Add query request handlers
-builder.Services.AddScoped<IRequestHandler<GetAllProductsQuery, PaginatedList<ProductDto>>, GetAllProductsQueryHandler>();
+builder.Services.AddScoped<IQueryHandler<GetAllProductsQuery, PaginatedList<ProductDto>>, GetAllProductsQueryHandler>();
 
 // Add command request handlers
-builder.Services.AddScoped<IRequestHandler<CreateProductCommand>, CreateProductCommandHandler>();
+builder.Services.AddScoped<ICommandHandler<CreateProductCommand>, CreateProductCommandHandler>();
 
 var app = builder.Build();
 

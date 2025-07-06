@@ -2,13 +2,22 @@ using DepresStore.Shared.Kernel.Mediator;
 
 namespace DepresStore.Shared.Kernel.Cqrs
 {
-    public interface ICommandHandler<in TRequest, TResponse> : IRequestHandler<TRequest, TResponse>
-        where TRequest : IRequest<TResponse>
+    /// <summary>
+    /// Defines a handler for a command with a result.
+    /// </summary>
+    /// <typeparam name="TCommand">Command type.</typeparam>
+    /// <typeparam name="TResult">Command result type.</typeparam>
+    public interface ICommandHandler<in TCommand, TResult> : IRequestHandler<TCommand, TResult>
+        where TCommand : ICommand<TResult>
     {
     }
 
-    public interface ICommandHandler<in TRequest> : IRequestHandler<TRequest>
-        where TRequest : IRequest
+    /// <summary>
+    /// Defines a handler for a command.
+    /// </summary>
+    /// <typeparam name="TCommand"></typeparam>
+    public interface ICommandHandler<in TCommand> : IRequestHandler<TCommand>
+        where TCommand : ICommand
     {
     }
 }

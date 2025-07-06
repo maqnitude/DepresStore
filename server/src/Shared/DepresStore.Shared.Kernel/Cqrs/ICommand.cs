@@ -3,13 +3,13 @@ using DepresStore.Shared.Kernel.Mediator;
 namespace DepresStore.Shared.Kernel.Cqrs
 {
     /// <summary>
-    /// Defines a command request with a response.
+    /// Defines a command request with a result.
     /// </summary>
-    /// <typeparam name="TResponse">Response type.</typeparam>
-    public interface ICommand<out TResponse> : IRequest<TResponse> { }
+    /// <typeparam name="TResult">Command result type.</typeparam>
+    public interface ICommand<out TResult> : IRequest<TResult> { }
 
     /// <summary>
-    /// Defines a command request with no response.
+    /// Defines a command request with no result.
     /// </summary>
     public interface ICommand : IRequest { }
 }

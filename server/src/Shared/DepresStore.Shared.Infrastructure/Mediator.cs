@@ -1,3 +1,4 @@
+using DepresStore.Shared.Kernel.Cqrs;
 using DepresStore.Shared.Kernel.Mediator;
 
 namespace DepresStore.Shared.Infrastructure
@@ -17,9 +18,17 @@ namespace DepresStore.Shared.Infrastructure
         {
             ArgumentNullException.ThrowIfNull(request);
 
-            var handlerType = typeof(IRequestHandler<,>).MakeGenericType(request.GetType(), typeof(TResponse));
-            dynamic handler = _serviceProvider.GetService(handlerType)
-                ?? throw new InvalidOperationException($"Handler for {request.GetType()} not found");
+            var handler = ResolveHandler(
+                [
+                    typeof(IQueryHandler<,>),
+                    typeof(ICommandHandler<,>),
+                    typeof(IRequestHandler<,>)
+                ],
+                [
+                    request.GetType(),
+                    typeof(TResponse)
+                ]
+            ) ?? throw new InvalidOperationException($"Handler for {request.GetType()} not found");
 
             return handler.HandleAsync((dynamic)request, cancellationToken);
         }
@@ -30,11 +39,33 @@ namespace DepresStore.Shared.Infrastructure
         {
             ArgumentNullException.ThrowIfNull(request);
 
-            var handlerType = typeof(IRequestHandler<>).MakeGenericType(request.GetType());
-            dynamic handler = _serviceProvider.GetService(handlerType)
-                ?? throw new InvalidOperationException($"Handler for {request.GetType()} not found");
+            var handler = ResolveHandler(
+                [
+                    typeof(ICommandHandler<>),
+                    typeof(IRequestHandler<>)
+                ],
+                [
+                    request.GetType()
+                ]
+            ) ?? throw new InvalidOperationException($"Handler for {request.GetType()} not found");
 
             return handler.HandleAsync((dynamic)request, cancellationToken);
+        }
+
+        private dynamic? ResolveHandler(Type[] handlerTypeDefinitions, Type[] handlerTypeArguments)
+        {
+            foreach (var handlerTypeDef in handlerTypeDefinitions)
+            {
+                var handlerType = handlerTypeDef.MakeGenericType(handlerTypeArguments);
+                dynamic? handler = _serviceProvider.GetService(handlerType);
+
+                if (handler != null)
+                {
+                    return handler;
+                }
+            }
+
+            return null;
         }
     }
 }
