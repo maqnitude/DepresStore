@@ -12,9 +12,10 @@ namespace DepresStore.Shared.Infrastructure
             _serviceProvider = serviceProvider;
         }
 
-        public Task<TResponse> SendAsync<TResponse>(
-            IRequest<TResponse> request,
+        public Task<TResponse> SendAsync<TRequest, TResponse>(
+            TRequest request,
             CancellationToken cancellationToken = default)
+            where TRequest : IRequest<TResponse>
         {
             ArgumentNullException.ThrowIfNull(request);
 
@@ -35,7 +36,8 @@ namespace DepresStore.Shared.Infrastructure
 
         public Task SendAsync<TRequest>(
             TRequest request,
-            CancellationToken cancellationToken = default) where TRequest : IRequest
+            CancellationToken cancellationToken = default)
+            where TRequest : IRequest
         {
             ArgumentNullException.ThrowIfNull(request);
 
