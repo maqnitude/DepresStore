@@ -14,6 +14,7 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
+// builder.Services.AddSingleton<IEventBus, InProcessEventBusReflectionBased>();
 builder.Services.AddSingleton<IEventBus, InProcessEventBus>();
 builder.Services.AddScoped<IMediator, Mediator>();
 
@@ -38,51 +39,32 @@ if (app.Environment.IsDevelopment())
 
 app.UseHttpsRedirection();
 
-var summaries = new[]
-{
-    "Freezing", "Bracing", "Chilly", "Cool", "Mild", "Warm", "Balmy", "Hot", "Sweltering", "Scorching"
-};
-
-app.MapGet("/weatherforecast", () =>
-{
-    var forecast = Enumerable.Range(1, 5).Select(index =>
-        new WeatherForecast
-        (
-            DateOnly.FromDateTime(DateTime.Now.AddDays(index)),
-            Random.Shared.Next(-20, 55),
-            summaries[Random.Shared.Next(summaries.Length)]
-        ))
-        .ToArray();
-    return forecast;
-})
-.WithName("GetWeatherForecast")
-.WithOpenApi();
-
-// Subscribe domain event handlers here for now
-var eventBus = app.Services.GetRequiredService<IEventBus>();
-eventBus.Subscribe<ProductNameChangedEvent, ProductNameChangedEventHandler>();
+// Have to do this if using InProcessEventBusReflectionBased
+// var eventBus = app.Services.GetRequiredService<IEventBus>();
+// eventBus.Subscribe<ProductNameChangedEvent, ProductNameChangedEventHandler>();
 
 app.MapGet("/products", async (IMediator mediator) =>
 {
     var result = await mediator.SendAsync(new GetAllProductsQuery());
     return Results.Ok(result);
-});
+})
+.WithName("GetAllProducts")
+.WithOpenApi();
 
 app.MapPost("/products", async (IMediator mediator) =>
 {
     await mediator.SendAsync(new CreateProductCommand());
     return Results.Ok("CreateProductCommand sent");
-});
+})
+.WithName("CreateProduct")
+.WithOpenApi();
 
 app.MapPut("/products", async (IMediator mediator) =>
 {
     await mediator.SendAsync(new UpdateProductCommand());
     return Results.Ok("UpdateProductCommand sent");
-});
+})
+.WithName("UpdateProduct")
+.WithOpenApi();
 
 app.Run();
-
-record WeatherForecast(DateOnly Date, int TemperatureC, string? Summary)
-{
-    public int TemperatureF => 32 + (int)(TemperatureC / 0.5556);
-}

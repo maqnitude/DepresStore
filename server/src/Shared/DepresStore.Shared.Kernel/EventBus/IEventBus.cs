@@ -17,8 +17,8 @@ namespace DepresStore.Shared.Kernel.EventBus
         /// </summary>
         /// <typeparam name="TEvent">Event type.</typeparam>
         /// <typeparam name="THandler">Handler type.</typeparam>
-        void Subscribe<TEvent, THandler>()
-            where TEvent : IEvent
-            where THandler : IEventHandler<TEvent>;
+        // void Subscribe<TEvent, THandler>()
+        //     where TEvent : IEvent
+        //     where THandler : IEventHandler<TEvent>;
     }
 }

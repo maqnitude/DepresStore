@@ -1,4 +1,3 @@
-using System.Collections.Concurrent;
 using DepresStore.Shared.Kernel.EventBus;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
@@ -10,8 +9,6 @@ namespace DepresStore.Shared.Infrastructure
         private readonly IServiceProvider _serviceProvider;
         private readonly ILogger<InProcessEventBus> _logger;
 
-        private readonly ConcurrentDictionary<Type, List<Type>> _eventHandlers = new();
-
         public InProcessEventBus(
             IServiceProvider serviceProvider,
             ILogger<InProcessEventBus> logger)
@@ -20,6 +17,13 @@ namespace DepresStore.Shared.Infrastructure
             _logger = logger;
         }
 
+        /// <summary>
+        /// Publish event and invoked handlers registered in DI container.
+        /// </summary>
+        /// <typeparam name="TEvent">Event type.</typeparam>
+        /// <param name="event">The event to publish.</param>
+        /// <param name="cancellationToken">Cancellation token.</param>
+        /// <returns></returns>
         public async Task PublishAsync<TEvent>(
             TEvent @event,
             CancellationToken cancellationToken = default)
@@ -29,71 +33,43 @@ namespace DepresStore.Shared.Infrastructure
 
             _logger.LogInformation("Publishing event {EventType}...", eventType);
 
-            if (!_eventHandlers.TryGetValue(eventType, out var handlerInterfaceTypes))
+            using var scope = _serviceProvider.CreateScope();
+
+            _logger.LogInformation("Getting handlers for event {Event}...", eventType);
+
+            var handlerGenericType = typeof(IEventHandler<>).MakeGenericType(eventType);
+            var handlers = scope.ServiceProvider.GetServices(handlerGenericType);
+
+            if (!handlers.Any())
             {
-                _logger.LogWarning("No handler for event {EventType} found", eventType);
+                _logger.LogWarning("No handlers for event {Event} found", eventType);
                 return;
             }
 
-            using var scope = _serviceProvider.CreateScope();
-            foreach (var handlerInterfaceType in handlerInterfaceTypes)
+            _logger.LogInformation("Getting HandleAsync method from {HandlerType}...", handlerGenericType);
+
+            var handleMethod = handlerGenericType.GetMethod("HandleAsync");
+            if (handleMethod == null)
+            {
+                _logger.LogWarning("Could not find HandlerAsync method from {HandlerType}", handlerGenericType);
+                return;
+            }
+
+            foreach (var handler in handlers)
             {
                 try
                 {
-                    _logger.LogInformation("Getting concrete handler of {HandlerInterfaceType}...", handlerInterfaceType);
+                    _logger.LogInformation("Invoking HandleAsync method from handler {HandlerType} for event {Event}...",
+                        handlerGenericType, eventType);
 
-                    var handler = scope.ServiceProvider.GetRequiredService(handlerInterfaceType);
-
-                    _logger.LogInformation("Getting HandleAsync method from {HandlerType}...", handler.GetType());
-
-                    var handleMethod = handlerInterfaceType.GetMethod("HandleAsync");
-                    if (handleMethod != null)
-                    {
-                        _logger.LogInformation("Invoking HandleAsync method from {HandlerType}...", handler.GetType());
-
-                        var task = (Task)handleMethod.Invoke(handler, [@event, cancellationToken])!;
-                        await task;
-                    }
-                    else
-                    {
-                        _logger.LogError("Could not find HandleAsync method from {HandlerType}", handler.GetType());
-                    }
-
+                    await (Task)handleMethod.Invoke(handler, [@event, cancellationToken])!;
                 }
                 catch (Exception exception)
                 {
-                    _logger.LogError(exception, "Could not get or invoke concrete handler of {HandlerInterfaceType}", handlerInterfaceType);
+                    _logger.LogError(exception, "Could not invoke HandleAsync method from handler {HandlerType} for event {Event}",
+                        handlerGenericType, eventType);
                 }
             }
-        }
-
-        public void Subscribe<TEvent, THandler>()
-            where TEvent : IEvent
-            where THandler : IEventHandler<TEvent>
-        {
-            var eventType = typeof(TEvent);
-            // Event handlers are registered via the IEventHandler interface
-            // not the concrete implementation directly
-            var handlerInterfaceType = typeof(IEventHandler<TEvent>);
-
-            _logger.LogInformation("Subscribing event handler {HandlerInterfaceType} to event {EventType}...", handlerInterfaceType, eventType);
-
-            _eventHandlers.AddOrUpdate(
-                eventType,
-                _ => [handlerInterfaceType],
-                (_, handlerInterfaceTypes) =>
-                {
-                    // List<Type> is not thread-safe
-                    lock (handlerInterfaceTypes)
-                    {
-                        if (!handlerInterfaceTypes.Contains(handlerInterfaceType))
-                        {
-                            handlerInterfaceTypes.Add(handlerInterfaceType);
-                        }
-                    }
-
-                    return handlerInterfaceTypes;
-                });
         }
     }
 }
