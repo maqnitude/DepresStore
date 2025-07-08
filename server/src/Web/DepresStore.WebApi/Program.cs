@@ -1,5 +1,5 @@
 using DepresStore.Modules.Catalog.Application.Features.CreateProduct;
-using DepresStore.Modules.Catalog.Application.Features.GetAllProducts;
+using DepresStore.Modules.Catalog.Application.Features.GetProducts;
 using DepresStore.Modules.Catalog.Application.Features.UpdateProduct;
 using DepresStore.Modules.Catalog.Core.ProductAggregate.Events;
 using DepresStore.Shared.Infrastructure;
@@ -19,7 +19,7 @@ builder.Services.AddSingleton<IEventBus, InProcessEventBus>();
 builder.Services.AddScoped<IMediator, Mediator>();
 
 // Add query request handlers
-builder.Services.AddScoped<IQueryHandler<GetAllProductsQuery, PaginatedList<ProductDto>>, GetAllProductsQueryHandler>();
+builder.Services.AddScoped<IQueryHandler<GetProductsQuery, PaginatedList<ProductDto>>, GetProductsQueryHandler>();
 
 // Add command request handlers
 builder.Services.AddScoped<ICommandHandler<CreateProductCommand>, CreateProductCommandHandler>();
@@ -45,7 +45,7 @@ app.UseHttpsRedirection();
 
 app.MapGet("/products", async (IMediator mediator) =>
 {
-    var result = await mediator.SendAsync(new GetAllProductsQuery());
+    var result = await mediator.SendAsync(new GetProductsQuery());
     return Results.Ok(result);
 })
 .WithName("GetAllProducts")
