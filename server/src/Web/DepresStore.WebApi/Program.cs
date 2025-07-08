@@ -1,7 +1,10 @@
 using DepresStore.Modules.Catalog.Application.Features.CreateProduct;
 using DepresStore.Modules.Catalog.Application.Features.GetAllProducts;
+using DepresStore.Modules.Catalog.Application.Features.UpdateProduct;
+using DepresStore.Modules.Catalog.Core.ProductAggregate.Events;
 using DepresStore.Shared.Infrastructure;
 using DepresStore.Shared.Kernel.Cqrs;
+using DepresStore.Shared.Kernel.EventBus;
 using DepresStore.Shared.Kernel.Mediator;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -11,6 +14,7 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
+builder.Services.AddSingleton<IEventBus, InProcessEventBus>();
 builder.Services.AddScoped<IMediator, Mediator>();
 
 // Add query request handlers
@@ -18,6 +22,10 @@ builder.Services.AddScoped<IQueryHandler<GetAllProductsQuery, PaginatedList<Prod
 
 // Add command request handlers
 builder.Services.AddScoped<ICommandHandler<CreateProductCommand>, CreateProductCommandHandler>();
+builder.Services.AddScoped<ICommandHandler<UpdateProductCommand>, UpdateProductCommandHandler>();
+
+// Add domain event handlers
+builder.Services.AddScoped<IEventHandler<ProductNameChangedEvent>, ProductNameChangedEventHandler>();
 
 var app = builder.Build();
 
@@ -50,6 +58,10 @@ app.MapGet("/weatherforecast", () =>
 .WithName("GetWeatherForecast")
 .WithOpenApi();
 
+// Subscribe domain event handlers here for now
+var eventBus = app.Services.GetRequiredService<IEventBus>();
+eventBus.Subscribe<ProductNameChangedEvent, ProductNameChangedEventHandler>();
+
 app.MapGet("/products", async (IMediator mediator) =>
 {
     var result = await mediator.SendAsync(new GetAllProductsQuery());
@@ -59,7 +71,13 @@ app.MapGet("/products", async (IMediator mediator) =>
 app.MapPost("/products", async (IMediator mediator) =>
 {
     await mediator.SendAsync(new CreateProductCommand());
-    return Results.Ok("Command sent");
+    return Results.Ok("CreateProductCommand sent");
+});
+
+app.MapPut("/products", async (IMediator mediator) =>
+{
+    await mediator.SendAsync(new UpdateProductCommand());
+    return Results.Ok("UpdateProductCommand sent");
 });
 
 app.Run();

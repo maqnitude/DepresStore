@@ -14,7 +14,7 @@ namespace DepresStore.Modules.Catalog.Application.Features.CreateProduct
 
         public Task HandleAsync(CreateProductCommand command, CancellationToken cancellationToken)
         {
-            _logger.LogInformation("CreateProductCommand handled");
+            _logger.LogInformation("Handling CreateProductCommand...");
             return Task.CompletedTask;
         }
     }

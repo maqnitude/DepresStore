@@ -15,6 +15,8 @@ namespace DepresStore.Modules.Catalog.Core.ProductAggregate
             {
                 throw new ArgumentException("ProductId value cannot be empty", nameof(value));
             }
+
+            Value = value;
         }
 
         protected override IEnumerable<object> GetEqualityComponents()

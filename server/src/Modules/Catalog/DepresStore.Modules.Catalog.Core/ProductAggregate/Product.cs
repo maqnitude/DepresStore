@@ -1,9 +1,24 @@
+using DepresStore.Modules.Catalog.Core.ProductAggregate.Events;
 using DepresStore.Shared.Kernel;
 
 namespace DepresStore.Modules.Catalog.Core.ProductAggregate
 {
-    public class Product : Entity<ProductId>
+    public class Product : AggregateRoot<ProductId>
     {
         public string Name { get; set; } = string.Empty;
+
+        private Product() : base() { }
+
+        public Product(ProductId productId) : base(productId) { }
+
+        public void ChangeName(string newName)
+        {
+            if (newName != Name)
+            {
+                var oldName = Name;
+                Name = newName;
+                AddDomainEvent(new ProductNameChangedEvent(Id, oldName, newName));
+            }
+        }
     }
 }
