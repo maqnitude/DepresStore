@@ -1,4 +1,4 @@
-using DepresStore.Modules.Catalog.Core.ProductAggregate;
+using DepresStore.Modules.Catalog.Core.ValueObjects;
 using DepresStore.Shared.Kernel.EventBus;
 
 namespace DepresStore.Modules.Catalog.Core.Events

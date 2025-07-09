@@ -1,4 +1,5 @@
-using DepresStore.Modules.Catalog.Core.ProductAggregate;
+using DepresStore.Modules.Catalog.Core.Entities;
+using DepresStore.Modules.Catalog.Core.ValueObjects;
 using DepresStore.Shared.Kernel.Cqrs;
 using DepresStore.Shared.Kernel.EventBus;
 using Microsoft.Extensions.Logging;

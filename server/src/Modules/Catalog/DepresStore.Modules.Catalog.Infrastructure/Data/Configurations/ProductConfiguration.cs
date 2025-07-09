@@ -1,4 +1,5 @@
-using DepresStore.Modules.Catalog.Core.ProductAggregate;
+using DepresStore.Modules.Catalog.Core.Entities;
+using DepresStore.Modules.Catalog.Core.ValueObjects;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 

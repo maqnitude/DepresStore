@@ -1,7 +1,8 @@
 using DepresStore.Modules.Catalog.Core.Events;
+using DepresStore.Modules.Catalog.Core.ValueObjects;
 using DepresStore.Shared.Kernel;
 
-namespace DepresStore.Modules.Catalog.Core.ProductAggregate
+namespace DepresStore.Modules.Catalog.Core.Entities
 {
     public class Product : AggregateRoot<ProductId>
     {

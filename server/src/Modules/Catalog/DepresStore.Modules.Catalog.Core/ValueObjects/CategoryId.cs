@@ -1,6 +1,6 @@
 using DepresStore.Shared.Kernel;
 
-namespace DepresStore.Modules.Catalog.Core.CategoryAggregate
+namespace DepresStore.Modules.Catalog.Core.ValueObjects
 {
     public class CategoryId : ValueObject
     {

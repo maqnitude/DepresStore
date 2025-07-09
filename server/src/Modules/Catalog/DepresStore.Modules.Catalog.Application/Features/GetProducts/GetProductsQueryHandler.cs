@@ -16,7 +16,7 @@ namespace DepresStore.Modules.Catalog.Application.Features.GetProducts
             GetProductsQuery request,
             CancellationToken cancellationToken)
         {
-            _logger.LogInformation("GetAllProductsQuery handled");
+            _logger.LogInformation("GetProductsQuery handled");
             return Task.FromResult(new PaginatedList<ProductDto>());
         }
     }
