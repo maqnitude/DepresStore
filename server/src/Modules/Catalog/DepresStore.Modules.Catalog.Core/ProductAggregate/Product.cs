@@ -1,4 +1,4 @@
-using DepresStore.Modules.Catalog.Core.ProductAggregate.Events;
+using DepresStore.Modules.Catalog.Core.Events;
 using DepresStore.Shared.Kernel;
 
 namespace DepresStore.Modules.Catalog.Core.ProductAggregate
@@ -17,7 +17,8 @@ namespace DepresStore.Modules.Catalog.Core.ProductAggregate
             {
                 var oldName = Name;
                 Name = newName;
-                AddDomainEvent(new ProductNameChangedEvent(Id, oldName, newName));
+
+                AddDomainEvent(new ProductNameChanged(Id, oldName, newName));
             }
         }
     }

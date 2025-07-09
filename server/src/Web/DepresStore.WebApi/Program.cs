@@ -1,7 +1,8 @@
+using DepresStore.Modules.Catalog.Application.EventHandlers;
 using DepresStore.Modules.Catalog.Application.Features.CreateProduct;
 using DepresStore.Modules.Catalog.Application.Features.GetProducts;
 using DepresStore.Modules.Catalog.Application.Features.UpdateProduct;
-using DepresStore.Modules.Catalog.Core.ProductAggregate.Events;
+using DepresStore.Modules.Catalog.Core.Events;
 using DepresStore.Shared.Infrastructure;
 using DepresStore.Shared.Kernel.Cqrs;
 using DepresStore.Shared.Kernel.EventBus;
@@ -26,7 +27,7 @@ builder.Services.AddScoped<ICommandHandler<CreateProductCommand>, CreateProductC
 builder.Services.AddScoped<ICommandHandler<UpdateProductCommand>, UpdateProductCommandHandler>();
 
 // Add domain event handlers
-builder.Services.AddScoped<IEventHandler<ProductNameChangedEvent>, ProductNameChangedEventHandler>();
+builder.Services.AddScoped<IEventHandler<ProductNameChanged>, DoSomethingOnProductNameChanged>();
 
 var app = builder.Build();
 

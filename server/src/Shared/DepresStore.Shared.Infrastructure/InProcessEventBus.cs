@@ -18,7 +18,7 @@ namespace DepresStore.Shared.Infrastructure
         }
 
         /// <summary>
-        /// Publish event and invoked handlers registered in DI container.
+        /// Publish event and invoke handlers registered in DI container.
         /// </summary>
         /// <typeparam name="TEvent">Event type.</typeparam>
         /// <param name="event">The event to publish.</param>
