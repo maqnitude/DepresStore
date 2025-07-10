@@ -1,11 +1,12 @@
-using DepresStore.Modules.Catalog.Application.EventHandlers;
-using DepresStore.Modules.Catalog.Application.Features.CreateProduct;
-using DepresStore.Modules.Catalog.Application.Features.GetProducts;
-using DepresStore.Modules.Catalog.Application.Features.UpdateProduct;
-using DepresStore.Modules.Catalog.Core.Events;
+using DepresStore.Modules.Catalog.Application.Features.Products.Commands;
+using DepresStore.Modules.Catalog.Application.Features.Products.DomainEventHandlers;
+using DepresStore.Modules.Catalog.Application.Features.Products.Queries;
+using DepresStore.Modules.Catalog.Core.DomainEvents;
+using DepresStore.Modules.Inventory.Application.Features.Products.IntegrationEventHandlers;
 using DepresStore.Shared.Infrastructure;
 using DepresStore.Shared.Kernel.Cqrs;
 using DepresStore.Shared.Kernel.EventBus;
+using DepresStore.Shared.Kernel.IntegrationEvents;
 using DepresStore.Shared.Kernel.Mediator;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -27,7 +28,10 @@ builder.Services.AddScoped<ICommandHandler<CreateProductCommand>, CreateProductC
 builder.Services.AddScoped<ICommandHandler<UpdateProductCommand>, UpdateProductCommandHandler>();
 
 // Add domain event handlers
-builder.Services.AddScoped<IEventHandler<ProductNameChanged>, DoSomethingOnProductNameChanged>();
+builder.Services.AddScoped<IEventHandler<ProductNameChanged>, ProductNameChangedEventHandler>();
+
+// Add integration event handlers
+builder.Services.AddScoped<IEventHandler<ProductCreated>, ProductCreatedEventHandler>();
 
 var app = builder.Build();
 
@@ -39,10 +43,6 @@ if (app.Environment.IsDevelopment())
 }
 
 app.UseHttpsRedirection();
-
-// Have to do this if using InProcessEventBusReflectionBased
-// var eventBus = app.Services.GetRequiredService<IEventBus>();
-// eventBus.Subscribe<ProductNameChangedEvent, ProductNameChangedEventHandler>();
 
 app.MapGet("/products", async (IMediator mediator) =>
 {

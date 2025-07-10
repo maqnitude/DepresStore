@@ -14,6 +14,7 @@
   <ItemGroup>
     <ProjectReference Include="..\..\Shared\DepresStore.Shared.Infrastructure\DepresStore.Shared.Infrastructure.csproj" />
     <ProjectReference Include="..\..\Modules\Catalog\DepresStore.Modules.Catalog.Application\DepresStore.Modules.Catalog.Application.csproj" />
+    <ProjectReference Include="..\..\Modules\Inventory\DepresStore.Modules.Inventory.Application\DepresStore.Modules.Inventory.Application.csproj" />
   </ItemGroup>
 
 </Project>

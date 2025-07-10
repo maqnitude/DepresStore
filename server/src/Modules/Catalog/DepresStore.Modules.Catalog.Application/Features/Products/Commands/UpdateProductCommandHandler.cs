@@ -35,6 +35,7 @@ namespace DepresStore.Modules.Catalog.Application.Features.Products.Commands
             // Save changes...
 
             // TODO: Wrap the event bus in a DomainEventDispatcher class?
+            // TODO: Domain events will be published after every SaveChangesAsync (override it in DbContext)
             foreach (var domainEvent in product.DomainEvents)
             {
                 await _eventBus.PublishAsync(domainEvent, cancellationToken);

@@ -25,6 +25,14 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Web", "Web", "{32486570-955
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DepresStore.WebApi", "src\Web\DepresStore.WebApi\DepresStore.WebApi.csproj", "{4E52813E-F661-4560-9990-1A5E67FCC682}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Inventory", "Inventory", "{4CE558F8-FB35-4C7B-9F0B-E7FE66B797F1}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DepresStore.Modules.Inventory.Core", "src\Modules\Inventory\DepresStore.Modules.Inventory.Core\DepresStore.Modules.Inventory.Core.csproj", "{91EA0C61-7DE6-4E57-A0AB-CD966F8E26F9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DepresStore.Modules.Inventory.Application", "src\Modules\Inventory\DepresStore.Modules.Inventory.Application\DepresStore.Modules.Inventory.Application.csproj", "{F2566320-0D96-4A31-B221-56991A51AE24}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DepresStore.Modules.Inventory.Infrastructure", "src\Modules\Inventory\DepresStore.Modules.Inventory.Infrastructure\DepresStore.Modules.Inventory.Infrastructure.csproj", "{BBDB1A72-A104-411C-B0E1-91FBC6BFC725}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -58,6 +66,18 @@ Global
 		{4E52813E-F661-4560-9990-1A5E67FCC682}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4E52813E-F661-4560-9990-1A5E67FCC682}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4E52813E-F661-4560-9990-1A5E67FCC682}.Release|Any CPU.Build.0 = Release|Any CPU
+		{91EA0C61-7DE6-4E57-A0AB-CD966F8E26F9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{91EA0C61-7DE6-4E57-A0AB-CD966F8E26F9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{91EA0C61-7DE6-4E57-A0AB-CD966F8E26F9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{91EA0C61-7DE6-4E57-A0AB-CD966F8E26F9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F2566320-0D96-4A31-B221-56991A51AE24}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F2566320-0D96-4A31-B221-56991A51AE24}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F2566320-0D96-4A31-B221-56991A51AE24}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F2566320-0D96-4A31-B221-56991A51AE24}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BBDB1A72-A104-411C-B0E1-91FBC6BFC725}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BBDB1A72-A104-411C-B0E1-91FBC6BFC725}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BBDB1A72-A104-411C-B0E1-91FBC6BFC725}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BBDB1A72-A104-411C-B0E1-91FBC6BFC725}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{213FFECB-9844-413E-B0DC-7A20AD80991C} = {2DF33220-C0C8-4ED3-863F-296D03E7E95C}
@@ -70,5 +90,9 @@ Global
 		{87B0897C-0DC7-4340-85F2-A1868B5C2A83} = {213FFECB-9844-413E-B0DC-7A20AD80991C}
 		{32486570-955A-42DD-9490-D49674AA97BE} = {2DF33220-C0C8-4ED3-863F-296D03E7E95C}
 		{4E52813E-F661-4560-9990-1A5E67FCC682} = {32486570-955A-42DD-9490-D49674AA97BE}
+		{4CE558F8-FB35-4C7B-9F0B-E7FE66B797F1} = {402DDD95-BEFB-452E-8D26-1A5AFAFBE0F7}
+		{91EA0C61-7DE6-4E57-A0AB-CD966F8E26F9} = {4CE558F8-FB35-4C7B-9F0B-E7FE66B797F1}
+		{F2566320-0D96-4A31-B221-56991A51AE24} = {4CE558F8-FB35-4C7B-9F0B-E7FE66B797F1}
+		{BBDB1A72-A104-411C-B0E1-91FBC6BFC725} = {4CE558F8-FB35-4C7B-9F0B-E7FE66B797F1}
 	EndGlobalSection
 EndGlobal
