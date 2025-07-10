@@ -1,5 +1,5 @@
 using DepresStore.Modules.Catalog.Core.Entities;
-using DepresStore.Modules.Catalog.Core.ValueObjects;
+using DepresStore.Shared.Kernel.ValueObjects;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 

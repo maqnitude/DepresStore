@@ -1,10 +1,10 @@
 using DepresStore.Modules.Catalog.Core.Entities;
-using DepresStore.Modules.Catalog.Core.ValueObjects;
 using DepresStore.Shared.Kernel.Cqrs;
 using DepresStore.Shared.Kernel.EventBus;
+using DepresStore.Shared.Kernel.ValueObjects;
 using Microsoft.Extensions.Logging;
 
-namespace DepresStore.Modules.Catalog.Application.Features.UpdateProduct
+namespace DepresStore.Modules.Catalog.Application.Features.Products.Commands
 {
     public class UpdateProductCommandHandler : ICommandHandler<UpdateProductCommand>
     {

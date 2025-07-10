@@ -1,4 +1,4 @@
-namespace DepresStore.Modules.Catalog.Application.Features.GetProducts
+namespace DepresStore.Modules.Catalog.Application.Features.Products.Queries
 {
     public class ProductDto
     {

@@ -1,7 +1,7 @@
 using DepresStore.Shared.Kernel.Cqrs;
 using Microsoft.Extensions.Logging;
 
-namespace DepresStore.Modules.Catalog.Application.Features.GetProducts
+namespace DepresStore.Modules.Catalog.Application.Features.Products.Queries
 {
     public class GetProductsQueryHandler : IQueryHandler<GetProductsQuery, PaginatedList<ProductDto>>
     {

@@ -1,14 +1,14 @@
-using DepresStore.Modules.Catalog.Core.Events;
+using DepresStore.Modules.Catalog.Core.DomainEvents;
 using DepresStore.Shared.Kernel.EventBus;
 using Microsoft.Extensions.Logging;
 
-namespace DepresStore.Modules.Catalog.Application.EventHandlers
+namespace DepresStore.Modules.Catalog.Application.Features.Products.DomainEventHandlers
 {
-    public class DoSomethingOnProductNameChanged : IEventHandler<ProductNameChanged>
+    public class ProductNameChangedEventHandler : IEventHandler<ProductNameChanged>
     {
-        private readonly ILogger<DoSomethingOnProductNameChanged> _logger;
+        private readonly ILogger<ProductNameChangedEventHandler> _logger;
 
-        public DoSomethingOnProductNameChanged(ILogger<DoSomethingOnProductNameChanged> logger)
+        public ProductNameChangedEventHandler(ILogger<ProductNameChangedEventHandler> logger)
         {
             _logger = logger;
         }

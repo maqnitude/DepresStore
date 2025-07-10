@@ -1,7 +1,7 @@
 using DepresStore.Shared.Kernel.Cqrs;
 using Microsoft.Extensions.Logging;
 
-namespace DepresStore.Modules.Catalog.Application.Features.CreateProduct
+namespace DepresStore.Modules.Catalog.Application.Features.Products.Commands
 {
     public class CreateProductCommandHandler : ICommandHandler<CreateProductCommand>
     {

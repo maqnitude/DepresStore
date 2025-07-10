@@ -1,6 +1,6 @@
 using DepresStore.Shared.Kernel.Cqrs;
 
-namespace DepresStore.Modules.Catalog.Application.Features.CreateProduct
+namespace DepresStore.Modules.Catalog.Application.Features.Products.Commands
 {
     public record CreateProductCommand() : ICommand { }
 }
