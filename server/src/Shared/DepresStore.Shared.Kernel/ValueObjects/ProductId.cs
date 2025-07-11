@@ -4,8 +4,7 @@ namespace DepresStore.Shared.Kernel.ValueObjects
     {
         public Guid Value { get; private set; }
 
-        // For EF Core
-        private ProductId() { }
+        public ProductId() { }
 
         public ProductId(Guid value)
         {

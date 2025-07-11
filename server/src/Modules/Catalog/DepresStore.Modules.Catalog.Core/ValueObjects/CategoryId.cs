@@ -6,8 +6,7 @@ namespace DepresStore.Modules.Catalog.Core.ValueObjects
     {
         public Guid Value { get; private set; }
 
-        // For EF Core
-        private CategoryId() { }
+        public CategoryId() { }
 
         public CategoryId(Guid value)
         {

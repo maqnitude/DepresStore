@@ -6,11 +6,22 @@ namespace DepresStore.Modules.Catalog.Core.Entities
 {
     public class Product : AggregateRoot<ProductId>
     {
-        public string Name { get; set; } = string.Empty;
+        public required string Name { get; set; }
 
-        private Product() : base() { }
+        // Navigations
+        public List<Category> Categories { get; } = [];
+        public List<ProductCategory> ProductCategories { get; } = [];
 
-        public Product(ProductId productId) : base(productId) { }
+        // EF Core lazy-loading proxies require the constructor to be accessible
+        // from the inheriting proxy class (use public or protected)
+        // Learn more: https://learn.microsoft.com/en-us/ef/core/modeling/constructors
+        public Product() : base()
+        {
+        }
+
+        public Product(ProductId productId) : base(productId)
+        {
+        }
 
         public void ChangeName(string newName)
         {

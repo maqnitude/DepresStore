@@ -1,10 +1,10 @@
 namespace DepresStore.Shared.Kernel
 {
-    public abstract class Entity<TId> : IEquatable<Entity<TId>> where TId : ValueObject
+    public abstract class Entity<TId> : IEquatable<Entity<TId>>
+        where TId : ValueObject
     {
         public TId Id { get; set; } = null!;
 
-        // For EF Core
         protected Entity() { }
 
         protected Entity(TId id)
