@@ -2,11 +2,11 @@ using DepresStore.Modules.Catalog.Application.Features.Products.Commands;
 using DepresStore.Modules.Catalog.Application.Features.Products.DomainEventHandlers;
 using DepresStore.Modules.Catalog.Application.Features.Products.Queries;
 using DepresStore.Modules.Catalog.Domain.Events;
+using DepresStore.Modules.Catalog.IntegrationEvents;
 using DepresStore.Modules.Inventory.Application.Features.Stocks.IntegrationEventHandlers;
 using DepresStore.Shared.Infrastructure;
 using DepresStore.Shared.Kernel.Cqrs;
 using DepresStore.Shared.Kernel.EventBus;
-using DepresStore.Shared.Kernel.IntegrationEvents;
 using DepresStore.Shared.Kernel.Mediator;
 
 var builder = WebApplication.CreateBuilder(args);

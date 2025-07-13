@@ -2,6 +2,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\DepresStore.Modules.Inventory.Domain\DepresStore.Modules.Inventory.Domain.csproj" />
+    <ProjectReference Include="..\..\Catalog\DepresStore.Modules.Catalog.IntegrationEvents\DepresStore.Modules.Catalog.IntegrationEvents.csproj" />
   </ItemGroup>
 
   <ItemGroup>

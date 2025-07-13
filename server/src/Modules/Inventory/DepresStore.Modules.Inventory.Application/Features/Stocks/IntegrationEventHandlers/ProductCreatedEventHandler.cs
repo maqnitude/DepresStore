@@ -1,5 +1,5 @@
+using DepresStore.Modules.Catalog.IntegrationEvents;
 using DepresStore.Shared.Kernel.EventBus;
-using DepresStore.Shared.Kernel.IntegrationEvents;
 using Microsoft.Extensions.Logging;
 
 namespace DepresStore.Modules.Inventory.Application.Features.Stocks.IntegrationEventHandlers

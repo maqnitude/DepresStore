@@ -1,13 +1,13 @@
+using DepresStore.Modules.Catalog.IntegrationEvents;
 using DepresStore.Shared.Kernel.Cqrs;
 using DepresStore.Shared.Kernel.EventBus;
-using DepresStore.Shared.Kernel.IntegrationEvents;
 using Microsoft.Extensions.Logging;
 
 namespace DepresStore.Modules.Catalog.Application.Features.Products.Commands
 {
     public class CreateProductCommandHandler : ICommandHandler<CreateProductCommand>
     {
-        private IEventBus _eventBus;
+        private readonly IEventBus _eventBus;
         private readonly ILogger<CreateProductCommandHandler> _logger;
 
         public CreateProductCommandHandler(

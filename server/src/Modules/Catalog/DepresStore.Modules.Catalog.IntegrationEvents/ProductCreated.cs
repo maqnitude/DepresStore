@@ -1,6 +1,6 @@
 using DepresStore.Shared.Kernel.EventBus;
 
-namespace DepresStore.Shared.Kernel.IntegrationEvents
+namespace DepresStore.Modules.Catalog.IntegrationEvents
 {
     public record ProductCreated : IIntegrationEvent { }
 }

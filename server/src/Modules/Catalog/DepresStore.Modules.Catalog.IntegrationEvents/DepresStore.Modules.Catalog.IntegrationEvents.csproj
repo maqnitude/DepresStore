@@ -1,12 +1,7 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <ItemGroup>
-    <PackageReference Include="Microsoft.Extensions.Logging" Version="8.0.*" />
-  </ItemGroup>
-
-  <ItemGroup>
     <ProjectReference Include="..\DepresStore.Modules.Catalog.Domain\DepresStore.Modules.Catalog.Domain.csproj" />
-    <ProjectReference Include="..\DepresStore.Modules.Catalog.IntegrationEvents\DepresStore.Modules.Catalog.IntegrationEvents.csproj" />
   </ItemGroup>
 
   <PropertyGroup>
