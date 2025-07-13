@@ -2,7 +2,7 @@ using DepresStore.Modules.Catalog.Application.Features.Products.Commands;
 using DepresStore.Modules.Catalog.Application.Features.Products.DomainEventHandlers;
 using DepresStore.Modules.Catalog.Application.Features.Products.Queries;
 using DepresStore.Modules.Catalog.Domain.Events;
-using DepresStore.Modules.Inventory.Application.Features.Products.IntegrationEventHandlers;
+using DepresStore.Modules.Inventory.Application.Features.Stocks.IntegrationEventHandlers;
 using DepresStore.Shared.Infrastructure;
 using DepresStore.Shared.Kernel.Cqrs;
 using DepresStore.Shared.Kernel.EventBus;

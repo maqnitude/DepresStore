@@ -1,3 +1,5 @@
+using DepresStore.Modules.Inventory.Domain.Entities;
+using DepresStore.Modules.Inventory.Infrastructure.Data.Configurations;
 using Microsoft.EntityFrameworkCore;
 
 namespace DepresStore.Modules.Inventory.Infrastructure.Data
@@ -6,6 +8,10 @@ namespace DepresStore.Modules.Inventory.Infrastructure.Data
     {
         public const string Schema = "DepresStore.Inventory";
 
+        public DbSet<Warehouse> Warehouses { get; set; }
+
+        public DbSet<Stock> Stocks { get; set; }
+
         public InventoryDbContext(DbContextOptions<InventoryDbContext> options) : base(options)
         {
         }
@@ -13,6 +19,9 @@ namespace DepresStore.Modules.Inventory.Infrastructure.Data
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.HasDefaultSchema(Schema);
+
+            new WarehouseConfiguration().Configure(modelBuilder.Entity<Warehouse>());
+            new StockConfiguration().Configure(modelBuilder.Entity<Stock>());
         }
     }
 }

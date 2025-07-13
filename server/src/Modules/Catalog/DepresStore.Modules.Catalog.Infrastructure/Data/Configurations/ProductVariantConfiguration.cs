@@ -15,7 +15,9 @@ namespace DepresStore.Modules.Catalog.Infrastructure.Data.Configurations
                     id => id.Value,
                     value => new ProductVariantId(value));
 
-            builder.HasAlternateKey(pv => pv.Sku);
+            builder
+                .HasIndex(pv => pv.Sku)
+                .IsUnique();
 
             builder.OwnsMany(
                 pv => pv.Attributes, builder =>
