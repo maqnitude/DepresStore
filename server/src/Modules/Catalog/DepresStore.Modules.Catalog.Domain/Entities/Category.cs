@@ -1,24 +1,18 @@
-using DepresStore.Modules.Catalog.Core.ValueObjects;
+using DepresStore.Modules.Catalog.Domain.ValueObjects;
 using DepresStore.Shared.Kernel;
 
-namespace DepresStore.Modules.Catalog.Core.Entities
+namespace DepresStore.Modules.Catalog.Domain.Entities
 {
     public class Category : AggregateRoot<CategoryId>
     {
-        public required CategoryId ParentCategoryId { get; set; }
-
         public required string Name { get; set; }
 
+        public CategoryId? ParentCategoryId { get; set; }
+
         // Navigations
+        public Category? ParentCategory { get; set; }
+        public List<Category> Subcategories { get; } = [];
         public List<Product> Products { get; } = [];
         public List<ProductCategory> ProductCategories { get; } = [];
-
-        public Category()
-        {
-        }
-
-        public Category(CategoryId id) : base(id)
-        {
-        }
     }
 }

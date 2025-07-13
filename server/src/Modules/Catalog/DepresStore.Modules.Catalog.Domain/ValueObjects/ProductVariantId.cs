@@ -1,12 +1,10 @@
 using DepresStore.Shared.Kernel;
 
-namespace DepresStore.Modules.Inventory.Core.ValueObjects
+namespace DepresStore.Modules.Catalog.Domain.ValueObjects
 {
     public class ProductVariantId : ValueObject
     {
-        public Guid Value { get; private set; }
-
-        private ProductVariantId() : base() { }
+        public Guid Value { get; init; }
 
         public ProductVariantId(Guid value)
         {

@@ -3,7 +3,6 @@ using DepresStore.Shared.Kernel.EventBus;
 namespace DepresStore.Shared.Kernel
 {
     public abstract class AggregateRoot<TId> : Entity<TId>
-        where TId : ValueObject
     {
         private readonly List<IDomainEvent> _domainEvents = [];
 

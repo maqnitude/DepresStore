@@ -1,9 +1,8 @@
 namespace DepresStore.Shared.Kernel
 {
     public abstract class Entity<TId> : IEquatable<Entity<TId>>
-        where TId : ValueObject
     {
-        public TId Id { get; set; } = null!;
+        public TId Id { get; set; } = default!;
 
         protected Entity() { }
 
@@ -24,7 +23,7 @@ namespace DepresStore.Shared.Kernel
                 return true;
             }
 
-            return Id.Equals(other.Id);
+            return EqualityComparer<TId>.Default.Equals(other.Id);
         }
 
         public override bool Equals(object? obj)
@@ -34,7 +33,7 @@ namespace DepresStore.Shared.Kernel
 
         public override int GetHashCode()
         {
-            return Id.GetHashCode();
+            return EqualityComparer<TId>.Default.GetHashCode();
         }
     }
 }

@@ -1,8 +1,11 @@
-using DepresStore.Modules.Catalog.Core.ValueObjects;
-using DepresStore.Shared.Kernel.ValueObjects;
+using DepresStore.Modules.Catalog.Domain.ValueObjects;
 
-namespace DepresStore.Modules.Catalog.Core.Entities
+namespace DepresStore.Modules.Catalog.Domain.Entities
 {
+    /// <summary>
+    /// Join entity used to configure many-to-many relationship
+    /// between <see cref="Entities.Product"/> and <see cref="Entities.Category"/>.
+    /// </summary>
     public class ProductCategory
     {
         public required ProductId ProductId { get; set; }

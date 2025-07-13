@@ -13,7 +13,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Modules", "Modules", "{402D
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Catalog", "Catalog", "{9B8E06F4-40ED-424C-B463-AA4799C89B11}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DepresStore.Modules.Catalog.Core", "src\Modules\Catalog\DepresStore.Modules.Catalog.Core\DepresStore.Modules.Catalog.Core.csproj", "{F2BF25C8-EF60-4800-A4CC-AC8A45225BF6}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DepresStore.Modules.Catalog.Domain", "src\Modules\Catalog\DepresStore.Modules.Catalog.Domain\DepresStore.Modules.Catalog.Domain.csproj", "{F2BF25C8-EF60-4800-A4CC-AC8A45225BF6}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DepresStore.Modules.Catalog.Infrastructure", "src\Modules\Catalog\DepresStore.Modules.Catalog.Infrastructure\DepresStore.Modules.Catalog.Infrastructure.csproj", "{0C1647C4-07B7-47F7-A319-551B94E51866}"
 EndProject
@@ -27,7 +27,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DepresStore.WebApi", "src\W
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Inventory", "Inventory", "{4CE558F8-FB35-4C7B-9F0B-E7FE66B797F1}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DepresStore.Modules.Inventory.Core", "src\Modules\Inventory\DepresStore.Modules.Inventory.Core\DepresStore.Modules.Inventory.Core.csproj", "{91EA0C61-7DE6-4E57-A0AB-CD966F8E26F9}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DepresStore.Modules.Inventory.Domain", "src\Modules\Inventory\DepresStore.Modules.Inventory.Domain\DepresStore.Modules.Inventory.Domain.csproj", "{91EA0C61-7DE6-4E57-A0AB-CD966F8E26F9}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DepresStore.Modules.Inventory.Application", "src\Modules\Inventory\DepresStore.Modules.Inventory.Application\DepresStore.Modules.Inventory.Application.csproj", "{F2566320-0D96-4A31-B221-56991A51AE24}"
 EndProject

@@ -1,10 +1,10 @@
-namespace DepresStore.Shared.Kernel.ValueObjects
+using DepresStore.Shared.Kernel;
+
+namespace DepresStore.Modules.Catalog.Domain.ValueObjects
 {
     public class ProductId : ValueObject
     {
-        public Guid Value { get; private set; }
-
-        public ProductId() { }
+        public Guid Value { get; init; }
 
         public ProductId(Guid value)
         {

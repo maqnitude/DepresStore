@@ -1,7 +1,7 @@
-using DepresStore.Modules.Catalog.Core.Entities;
+using DepresStore.Modules.Catalog.Domain.Entities;
+using DepresStore.Modules.Catalog.Domain.ValueObjects;
 using DepresStore.Shared.Kernel.Cqrs;
 using DepresStore.Shared.Kernel.EventBus;
-using DepresStore.Shared.Kernel.ValueObjects;
 using Microsoft.Extensions.Logging;
 
 namespace DepresStore.Modules.Catalog.Application.Features.Products.Commands
@@ -25,8 +25,9 @@ namespace DepresStore.Modules.Catalog.Application.Features.Products.Commands
 
             // Just for testing the event bus
             var productId = new ProductId(Guid.NewGuid());
-            var product = new Product(productId)
+            var product = new Product
             {
+                Id = productId,
                 Name = "Product Name"
             };
 

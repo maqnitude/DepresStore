@@ -1,12 +1,10 @@
 using DepresStore.Shared.Kernel;
 
-namespace DepresStore.Modules.Catalog.Core.ValueObjects
+namespace DepresStore.Modules.Catalog.Domain.ValueObjects
 {
     public class CategoryId : ValueObject
     {
-        public Guid Value { get; private set; }
-
-        public CategoryId() { }
+        public Guid Value { get; init; }
 
         public CategoryId(Guid value)
         {
@@ -14,6 +12,8 @@ namespace DepresStore.Modules.Catalog.Core.ValueObjects
             {
                 throw new ArgumentException("CategoryId value cannot be empty", nameof(value));
             }
+
+            Value = value;
         }
 
         protected override IEnumerable<object> GetEqualityComponents()

@@ -1,5 +1,5 @@
-using DepresStore.Modules.Catalog.Core.Entities;
-using DepresStore.Shared.Kernel.ValueObjects;
+using DepresStore.Modules.Catalog.Domain.Entities;
+using DepresStore.Modules.Catalog.Domain.ValueObjects;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
@@ -11,8 +11,7 @@ namespace DepresStore.Modules.Catalog.Infrastructure.Data.Configurations
         {
             builder.HasKey(p => p.Id);
 
-            // Only need to configure many-to-many relationship with Category here
-            // Everything else will be picked up by convention
+            // Product <many-to-many> Category via ProductCategory join entity
             builder
                 .HasMany(p => p.Categories)
                 .WithMany(c => c.Products)

@@ -11,7 +11,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\DepresStore.Modules.Catalog.Core\DepresStore.Modules.Catalog.Core.csproj" />
+    <ProjectReference Include="..\DepresStore.Modules.Catalog.Domain\DepresStore.Modules.Catalog.Domain.csproj" />
   </ItemGroup>
 
 </Project>

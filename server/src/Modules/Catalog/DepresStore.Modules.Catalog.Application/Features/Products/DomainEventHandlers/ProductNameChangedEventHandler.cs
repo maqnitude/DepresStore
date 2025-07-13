@@ -1,4 +1,4 @@
-using DepresStore.Modules.Catalog.Core.DomainEvents;
+using DepresStore.Modules.Catalog.Domain.Events;
 using DepresStore.Shared.Kernel.EventBus;
 using Microsoft.Extensions.Logging;
 

@@ -1,7 +1,7 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <ItemGroup>
-    <ProjectReference Include="..\DepresStore.Modules.Inventory.Core\DepresStore.Modules.Inventory.Core.csproj" />
+    <ProjectReference Include="..\DepresStore.Modules.Inventory.Domain\DepresStore.Modules.Inventory.Domain.csproj" />
   </ItemGroup>
 
   <ItemGroup>

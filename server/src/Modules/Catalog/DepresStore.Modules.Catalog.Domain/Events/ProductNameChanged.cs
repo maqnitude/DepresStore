@@ -1,7 +1,7 @@
+using DepresStore.Modules.Catalog.Domain.ValueObjects;
 using DepresStore.Shared.Kernel.EventBus;
-using DepresStore.Shared.Kernel.ValueObjects;
 
-namespace DepresStore.Modules.Catalog.Core.DomainEvents
+namespace DepresStore.Modules.Catalog.Domain.Events
 {
     public record ProductNameChanged(ProductId ProductId, string OldName, string NewName) : IDomainEvent { }
 }

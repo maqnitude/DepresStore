@@ -1,27 +1,19 @@
-using DepresStore.Modules.Catalog.Core.DomainEvents;
+using DepresStore.Modules.Catalog.Domain.Events;
+using DepresStore.Modules.Catalog.Domain.ValueObjects;
 using DepresStore.Shared.Kernel;
-using DepresStore.Shared.Kernel.ValueObjects;
 
-namespace DepresStore.Modules.Catalog.Core.Entities
+namespace DepresStore.Modules.Catalog.Domain.Entities
 {
     public class Product : AggregateRoot<ProductId>
     {
         public required string Name { get; set; }
 
+        public string? Description { get; set; }
+
         // Navigations
         public List<Category> Categories { get; } = [];
         public List<ProductCategory> ProductCategories { get; } = [];
-
-        // EF Core lazy-loading proxies require the constructor to be accessible
-        // from the inheriting proxy class (use public or protected)
-        // Learn more: https://learn.microsoft.com/en-us/ef/core/modeling/constructors
-        public Product() : base()
-        {
-        }
-
-        public Product(ProductId productId) : base(productId)
-        {
-        }
+        public List<ProductVariant> Variants { get; } = [];
 
         public void ChangeName(string newName)
         {
