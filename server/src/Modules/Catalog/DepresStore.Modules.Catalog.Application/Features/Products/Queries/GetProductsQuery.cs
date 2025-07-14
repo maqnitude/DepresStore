@@ -1,4 +1,5 @@
-using DepresStore.Shared.Kernel.Cqrs;
+using DepresStore.Shared.Kernel.Application;
+using DepresStore.Shared.Kernel.Application.Models;
 
 namespace DepresStore.Modules.Catalog.Application.Features.Products.Queries
 {

@@ -1,6 +1,6 @@
 using DepresStore.Modules.Catalog.IntegrationEvents;
-using DepresStore.Shared.Kernel.Cqrs;
-using DepresStore.Shared.Kernel.EventBus;
+using DepresStore.Shared.Kernel.Application;
+using DepresStore.Shared.Kernel.Infrastructure;
 using Microsoft.Extensions.Logging;
 
 namespace DepresStore.Modules.Catalog.Application.Features.Products.Commands

@@ -1,4 +1,4 @@
-namespace DepresStore.Shared.Kernel.EventBus
+namespace DepresStore.Shared.Kernel.Application
 {
     public interface IEventHandler<in TEvent>
     {

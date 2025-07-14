@@ -1,4 +1,4 @@
-namespace DepresStore.Shared.Kernel.Mediator
+namespace DepresStore.Shared.Kernel.Common
 {
     /// <summary>
     /// Represents a request with a response.
@@ -9,5 +9,5 @@ namespace DepresStore.Shared.Kernel.Mediator
     /// <summary>
     /// Represents a request with a no response.
     /// </summary>
-    public interface IRequest : IRequest<Unit> { }
+    public interface IRequest { }
 }

@@ -1,4 +1,4 @@
-namespace DepresStore.Shared.Kernel
+namespace DepresStore.Shared.Kernel.Domain
 {
     public abstract class Entity<TId> : IEquatable<Entity<TId>>
     {

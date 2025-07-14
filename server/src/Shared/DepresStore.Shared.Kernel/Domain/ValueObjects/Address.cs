@@ -1,4 +1,4 @@
-namespace DepresStore.Shared.Kernel.ValueObjects
+namespace DepresStore.Shared.Kernel.Domain.ValueObjects
 {
     public class Address : ValueObject
     {

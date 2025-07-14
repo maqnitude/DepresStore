@@ -1,5 +1,5 @@
 using DepresStore.Modules.Catalog.Domain.Events;
-using DepresStore.Shared.Kernel.EventBus;
+using DepresStore.Shared.Kernel.Application;
 using Microsoft.Extensions.Logging;
 
 namespace DepresStore.Modules.Catalog.Application.Features.Products.DomainEventHandlers

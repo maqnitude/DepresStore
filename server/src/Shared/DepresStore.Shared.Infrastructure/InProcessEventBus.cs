@@ -1,4 +1,6 @@
-using DepresStore.Shared.Kernel.EventBus;
+using DepresStore.Shared.Kernel.Application;
+using DepresStore.Shared.Kernel.Common;
+using DepresStore.Shared.Kernel.Infrastructure;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 

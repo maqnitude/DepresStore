@@ -1,4 +1,6 @@
-namespace DepresStore.Shared.Kernel.EventBus
+using DepresStore.Shared.Kernel.Common;
+
+namespace DepresStore.Shared.Kernel.Infrastructure
 {
     public interface IEventBus
     {

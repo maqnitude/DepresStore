@@ -5,9 +5,9 @@ using DepresStore.Modules.Catalog.Domain.Events;
 using DepresStore.Modules.Catalog.IntegrationEvents;
 using DepresStore.Modules.Inventory.Application.Features.Stocks.IntegrationEventHandlers;
 using DepresStore.Shared.Infrastructure;
-using DepresStore.Shared.Kernel.Cqrs;
-using DepresStore.Shared.Kernel.EventBus;
-using DepresStore.Shared.Kernel.Mediator;
+using DepresStore.Shared.Kernel.Application;
+using DepresStore.Shared.Kernel.Application.Models;
+using DepresStore.Shared.Kernel.Infrastructure;
 
 var builder = WebApplication.CreateBuilder(args);
 

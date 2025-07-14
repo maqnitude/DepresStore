@@ -1,4 +1,4 @@
-namespace DepresStore.Shared.Kernel.Cqrs
+namespace DepresStore.Shared.Kernel.Application.Models
 {
     public class PaginatedList<TItem>
     {

@@ -1,6 +1,6 @@
-using DepresStore.Shared.Kernel.Mediator;
+using DepresStore.Shared.Kernel.Common;
 
-namespace DepresStore.Shared.Kernel.Cqrs
+namespace DepresStore.Shared.Kernel.Application
 {
     /// <summary>
     /// Defines a handler for a query with a result.

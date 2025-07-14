@@ -1,6 +1,6 @@
 using DepresStore.Modules.Inventory.Domain.ValueObjects;
-using DepresStore.Shared.Kernel;
-using DepresStore.Shared.Kernel.ValueObjects;
+using DepresStore.Shared.Kernel.Domain;
+using DepresStore.Shared.Kernel.Domain.ValueObjects;
 
 namespace DepresStore.Modules.Inventory.Domain.Entities
 {

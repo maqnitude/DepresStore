@@ -1,6 +1,4 @@
-using DepresStore.Shared.Kernel.EventBus;
-
-namespace DepresStore.Shared.Kernel
+namespace DepresStore.Shared.Kernel.Domain
 {
     public abstract class AggregateRoot<TId> : Entity<TId>
     {

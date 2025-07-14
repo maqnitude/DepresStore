@@ -1,4 +1,5 @@
-using DepresStore.Shared.Kernel.Mediator;
+using DepresStore.Shared.Kernel.Common;
+using DepresStore.Shared.Kernel.Infrastructure;
 
 namespace DepresStore.Shared.Infrastructure
 {

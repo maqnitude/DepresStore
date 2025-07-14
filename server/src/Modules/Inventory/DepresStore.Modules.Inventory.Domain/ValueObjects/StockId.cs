@@ -1,4 +1,4 @@
-using DepresStore.Shared.Kernel;
+using DepresStore.Shared.Kernel.Domain;
 
 namespace DepresStore.Modules.Inventory.Domain.ValueObjects
 {

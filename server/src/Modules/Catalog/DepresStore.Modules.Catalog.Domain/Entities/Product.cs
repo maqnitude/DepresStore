@@ -1,6 +1,6 @@
 using DepresStore.Modules.Catalog.Domain.Events;
 using DepresStore.Modules.Catalog.Domain.ValueObjects;
-using DepresStore.Shared.Kernel;
+using DepresStore.Shared.Kernel.Domain;
 
 namespace DepresStore.Modules.Catalog.Domain.Entities
 {

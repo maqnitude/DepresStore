@@ -1,7 +1,7 @@
 using DepresStore.Modules.Catalog.Domain.Entities;
 using DepresStore.Modules.Catalog.Domain.ValueObjects;
-using DepresStore.Shared.Kernel.Cqrs;
-using DepresStore.Shared.Kernel.EventBus;
+using DepresStore.Shared.Kernel.Application;
+using DepresStore.Shared.Kernel.Infrastructure;
 using Microsoft.Extensions.Logging;
 
 namespace DepresStore.Modules.Catalog.Application.Features.Products.Commands
