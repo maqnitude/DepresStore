@@ -1,4 +1,4 @@
-namespace DepresStore.Shared.Kernel.Common
+namespace DepresStore.Shared.Kernel.Application
 {
     /// <summary>
     /// Defines a handler for a request with a response.

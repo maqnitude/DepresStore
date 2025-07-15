@@ -1,5 +1,3 @@
-using DepresStore.Shared.Kernel.Common;
-
 namespace DepresStore.Shared.Kernel.Application
 {
     /// <summary>
