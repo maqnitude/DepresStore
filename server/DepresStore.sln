@@ -35,6 +35,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DepresStore.Modules.Invento
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DepresStore.Modules.Catalog.IntegrationEvents", "src\Modules\Catalog\DepresStore.Modules.Catalog.IntegrationEvents\DepresStore.Modules.Catalog.IntegrationEvents.csproj", "{F3DB5447-A360-4E7A-8E02-C52456555F64}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DepresStore.WebApp", "src\Web\DepresStore.WebApp\DepresStore.WebApp.csproj", "{4D842D0F-39FB-40C8-8E6B-0330008CC0B0}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -84,6 +86,10 @@ Global
 		{F3DB5447-A360-4E7A-8E02-C52456555F64}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F3DB5447-A360-4E7A-8E02-C52456555F64}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F3DB5447-A360-4E7A-8E02-C52456555F64}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4D842D0F-39FB-40C8-8E6B-0330008CC0B0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4D842D0F-39FB-40C8-8E6B-0330008CC0B0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4D842D0F-39FB-40C8-8E6B-0330008CC0B0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4D842D0F-39FB-40C8-8E6B-0330008CC0B0}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{213FFECB-9844-413E-B0DC-7A20AD80991C} = {2DF33220-C0C8-4ED3-863F-296D03E7E95C}
@@ -101,5 +107,6 @@ Global
 		{F2566320-0D96-4A31-B221-56991A51AE24} = {4CE558F8-FB35-4C7B-9F0B-E7FE66B797F1}
 		{BBDB1A72-A104-411C-B0E1-91FBC6BFC725} = {4CE558F8-FB35-4C7B-9F0B-E7FE66B797F1}
 		{F3DB5447-A360-4E7A-8E02-C52456555F64} = {9B8E06F4-40ED-424C-B463-AA4799C89B11}
+		{4D842D0F-39FB-40C8-8E6B-0330008CC0B0} = {32486570-955A-42DD-9490-D49674AA97BE}
 	EndGlobalSection
 EndGlobal
