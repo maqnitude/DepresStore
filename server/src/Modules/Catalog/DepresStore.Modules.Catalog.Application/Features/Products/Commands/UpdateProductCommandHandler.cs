@@ -1,21 +1,22 @@
 using DepresStore.Modules.Catalog.Domain.Entities;
 using DepresStore.Modules.Catalog.Domain.ValueObjects;
 using DepresStore.Shared.Kernel.Application;
-using DepresStore.Shared.Kernel.Infrastructure;
+using DepresStore.Shared.Kernel.Domain;
+using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 
 namespace DepresStore.Modules.Catalog.Application.Features.Products.Commands
 {
     public class UpdateProductCommandHandler : ICommandHandler<UpdateProductCommand>
     {
-        private readonly IEventBus _eventBus;
+        private readonly IDomainEventDispatcher _domainEventDispatcher;
         private readonly ILogger<UpdateProductCommandHandler> _logger;
 
         public UpdateProductCommandHandler(
-            IEventBus eventBus,
+            [FromKeyedServices("catalog")] IDomainEventDispatcher domainEventDispatcher,
             ILogger<UpdateProductCommandHandler> logger)
         {
-            _eventBus = eventBus;
+            _domainEventDispatcher = domainEventDispatcher;
             _logger = logger;
         }
 
@@ -35,13 +36,7 @@ namespace DepresStore.Modules.Catalog.Application.Features.Products.Commands
 
             // Save changes...
 
-            // TODO: Wrap the event bus in a DomainEventDispatcher class?
-            // TODO: Domain events will be published after every SaveChangesAsync (override it in DbContext)
-            foreach (var domainEvent in product.DomainEvents)
-            {
-                await _eventBus.PublishAsync(domainEvent, cancellationToken);
-            }
-            product.ClearDomainEvents();
+            await _domainEventDispatcher.DispatchAndClearAsync(product, cancellationToken);
         }
     }
 }

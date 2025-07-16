@@ -1,12 +1,10 @@
 using DepresStore.Modules.Catalog.Application.Features.Products.Commands;
-using DepresStore.Modules.Catalog.Application.Features.Products.DomainEventHandlers;
 using DepresStore.Modules.Catalog.Application.Features.Products.Queries;
-using DepresStore.Modules.Catalog.Domain.Events;
+using DepresStore.Modules.Catalog.Composition;
 using DepresStore.Modules.Catalog.IntegrationEvents;
 using DepresStore.Modules.Inventory.Application.Features.Stocks.IntegrationEventHandlers;
 using DepresStore.Shared.Infrastructure;
 using DepresStore.Shared.Kernel.Application;
-using DepresStore.Shared.Kernel.Application.Models;
 using DepresStore.Shared.Kernel.Infrastructure;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -19,17 +17,9 @@ builder.Services.AddSwaggerGen();
 builder.Services.AddSingleton<IEventBus, InProcessEventBus>();
 builder.Services.AddScoped<IMediator, Mediator>();
 
-// Add query request handlers
-builder.Services.AddScoped<IQueryHandler<GetProductsQuery, PaginatedList<ProductDto>>, GetProductsQueryHandler>();
+builder.Services.AddCatalogModule();
 
-// Add command request handlers
-builder.Services.AddScoped<ICommandHandler<CreateProductCommand>, CreateProductCommandHandler>();
-builder.Services.AddScoped<ICommandHandler<UpdateProductCommand>, UpdateProductCommandHandler>();
-
-// Add domain event handlers
-builder.Services.AddScoped<IEventHandler<ProductNameChanged>, ProductNameChangedEventHandler>();
-
-// Add integration event handlers
+// Add integration event handlers (inventory)
 builder.Services.AddScoped<IEventHandler<ProductCreated>, ProductCreatedEventHandler>();
 
 var app = builder.Build();
