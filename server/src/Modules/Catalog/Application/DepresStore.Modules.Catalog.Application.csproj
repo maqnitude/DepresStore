@@ -5,8 +5,8 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\DepresStore.Modules.Catalog.Domain\DepresStore.Modules.Catalog.Domain.csproj" />
-    <ProjectReference Include="..\DepresStore.Modules.Catalog.IntegrationEvents\DepresStore.Modules.Catalog.IntegrationEvents.csproj" />
+    <ProjectReference Include="..\Domain\DepresStore.Modules.Catalog.Domain.csproj" />
+    <ProjectReference Include="..\IntegrationEvents\DepresStore.Modules.Catalog.IntegrationEvents.csproj" />
   </ItemGroup>
 
   <PropertyGroup>

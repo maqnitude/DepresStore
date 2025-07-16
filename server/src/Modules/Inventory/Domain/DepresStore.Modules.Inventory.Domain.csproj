@@ -1,7 +1,7 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <ItemGroup>
-    <ProjectReference Include="..\..\..\Shared\DepresStore.Shared.Kernel\DepresStore.Shared.Kernel.csproj" />
+    <ProjectReference Include="..\..\..\Shared\Kernel\DepresStore.Shared.Kernel.csproj" />
   </ItemGroup>
 
   <PropertyGroup>

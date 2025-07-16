@@ -11,7 +11,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\DepresStore.Modules.Inventory.Domain\DepresStore.Modules.Inventory.Domain.csproj" />
+    <ProjectReference Include="..\Domain\DepresStore.Modules.Inventory.Domain.csproj" />
   </ItemGroup>
 
 </Project>

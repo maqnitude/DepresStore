@@ -7,37 +7,37 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{2DF33220-C0C
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Shared", "Shared", "{213FFECB-9844-413E-B0DC-7A20AD80991C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DepresStore.Shared.Kernel", "src\Shared\DepresStore.Shared.Kernel\DepresStore.Shared.Kernel.csproj", "{8AD9A8D4-F9C3-444A-8CA4-B9EF62EFC982}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DepresStore.Shared.Kernel", "src\Shared\Kernel\DepresStore.Shared.Kernel.csproj", "{8AD9A8D4-F9C3-444A-8CA4-B9EF62EFC982}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Modules", "Modules", "{402DDD95-BEFB-452E-8D26-1A5AFAFBE0F7}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Catalog", "Catalog", "{9B8E06F4-40ED-424C-B463-AA4799C89B11}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DepresStore.Modules.Catalog.Domain", "src\Modules\Catalog\DepresStore.Modules.Catalog.Domain\DepresStore.Modules.Catalog.Domain.csproj", "{F2BF25C8-EF60-4800-A4CC-AC8A45225BF6}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DepresStore.Modules.Catalog.Domain", "src\Modules\Catalog\Domain\DepresStore.Modules.Catalog.Domain.csproj", "{F2BF25C8-EF60-4800-A4CC-AC8A45225BF6}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DepresStore.Modules.Catalog.Infrastructure", "src\Modules\Catalog\DepresStore.Modules.Catalog.Infrastructure\DepresStore.Modules.Catalog.Infrastructure.csproj", "{0C1647C4-07B7-47F7-A319-551B94E51866}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DepresStore.Modules.Catalog.Infrastructure", "src\Modules\Catalog\Infrastructure\DepresStore.Modules.Catalog.Infrastructure.csproj", "{0C1647C4-07B7-47F7-A319-551B94E51866}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DepresStore.Modules.Catalog.Application", "src\Modules\Catalog\DepresStore.Modules.Catalog.Application\DepresStore.Modules.Catalog.Application.csproj", "{35468642-0D11-47D7-90D6-8D25D46F05E8}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DepresStore.Modules.Catalog.Application", "src\Modules\Catalog\Application\DepresStore.Modules.Catalog.Application.csproj", "{35468642-0D11-47D7-90D6-8D25D46F05E8}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DepresStore.Shared.Infrastructure", "src\Shared\DepresStore.Shared.Infrastructure\DepresStore.Shared.Infrastructure.csproj", "{87B0897C-0DC7-4340-85F2-A1868B5C2A83}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DepresStore.Shared.Infrastructure", "src\Shared\Infrastructure\DepresStore.Shared.Infrastructure.csproj", "{87B0897C-0DC7-4340-85F2-A1868B5C2A83}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Web", "Web", "{32486570-955A-42DD-9490-D49674AA97BE}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DepresStore.WebApi", "src\Web\DepresStore.WebApi\DepresStore.WebApi.csproj", "{4E52813E-F661-4560-9990-1A5E67FCC682}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DepresStore.WebApi", "src\Web\WebApi\DepresStore.WebApi.csproj", "{4E52813E-F661-4560-9990-1A5E67FCC682}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Inventory", "Inventory", "{4CE558F8-FB35-4C7B-9F0B-E7FE66B797F1}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DepresStore.Modules.Inventory.Domain", "src\Modules\Inventory\DepresStore.Modules.Inventory.Domain\DepresStore.Modules.Inventory.Domain.csproj", "{91EA0C61-7DE6-4E57-A0AB-CD966F8E26F9}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DepresStore.Modules.Inventory.Domain", "src\Modules\Inventory\Domain\DepresStore.Modules.Inventory.Domain.csproj", "{91EA0C61-7DE6-4E57-A0AB-CD966F8E26F9}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DepresStore.Modules.Inventory.Application", "src\Modules\Inventory\DepresStore.Modules.Inventory.Application\DepresStore.Modules.Inventory.Application.csproj", "{F2566320-0D96-4A31-B221-56991A51AE24}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DepresStore.Modules.Inventory.Application", "src\Modules\Inventory\Application\DepresStore.Modules.Inventory.Application.csproj", "{F2566320-0D96-4A31-B221-56991A51AE24}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DepresStore.Modules.Inventory.Infrastructure", "src\Modules\Inventory\DepresStore.Modules.Inventory.Infrastructure\DepresStore.Modules.Inventory.Infrastructure.csproj", "{BBDB1A72-A104-411C-B0E1-91FBC6BFC725}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DepresStore.Modules.Inventory.Infrastructure", "src\Modules\Inventory\Infrastructure\DepresStore.Modules.Inventory.Infrastructure.csproj", "{BBDB1A72-A104-411C-B0E1-91FBC6BFC725}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DepresStore.Modules.Catalog.IntegrationEvents", "src\Modules\Catalog\DepresStore.Modules.Catalog.IntegrationEvents\DepresStore.Modules.Catalog.IntegrationEvents.csproj", "{F3DB5447-A360-4E7A-8E02-C52456555F64}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DepresStore.Modules.Catalog.IntegrationEvents", "src\Modules\Catalog\IntegrationEvents\DepresStore.Modules.Catalog.IntegrationEvents.csproj", "{F3DB5447-A360-4E7A-8E02-C52456555F64}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DepresStore.WebApp", "src\Web\DepresStore.WebApp\DepresStore.WebApp.csproj", "{4D842D0F-39FB-40C8-8E6B-0330008CC0B0}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DepresStore.WebApp", "src\Web\WebApp\DepresStore.WebApp.csproj", "{4D842D0F-39FB-40C8-8E6B-0330008CC0B0}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DepresStore.Modules.Catalog.Composition", "src\Modules\Catalog\DepresStore.Modules.Catalog.Composition\DepresStore.Modules.Catalog.Composition.csproj", "{49B2A327-28A0-435E-A285-F47993C59F04}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DepresStore.Modules.Catalog.Composition", "src\Modules\Catalog\Composition\DepresStore.Modules.Catalog.Composition.csproj", "{49B2A327-28A0-435E-A285-F47993C59F04}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
