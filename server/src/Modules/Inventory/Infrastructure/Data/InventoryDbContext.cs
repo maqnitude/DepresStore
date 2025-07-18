@@ -6,7 +6,7 @@ namespace DepresStore.Modules.Inventory.Infrastructure.Data
 {
     public class InventoryDbContext : DbContext
     {
-        public const string Schema = "DepresStore.Inventory";
+        public const string Schema = "Inventory";
 
         public DbSet<Warehouse> Warehouses { get; set; }
 

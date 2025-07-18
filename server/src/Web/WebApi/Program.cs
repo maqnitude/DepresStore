@@ -1,8 +1,7 @@
 using DepresStore.Modules.Catalog.Application.Features.Products.Commands;
 using DepresStore.Modules.Catalog.Application.Features.Products.Queries;
 using DepresStore.Modules.Catalog.Composition;
-using DepresStore.Modules.Catalog.IntegrationEvents;
-using DepresStore.Modules.Inventory.Application.Features.Stocks.IntegrationEventHandlers;
+using DepresStore.Modules.Inventory.Composition;
 using DepresStore.Shared.Infrastructure;
 using DepresStore.Shared.Kernel.Application;
 using DepresStore.Shared.Kernel.Infrastructure;
@@ -17,10 +16,9 @@ builder.Services.AddSwaggerGen();
 builder.Services.AddSingleton<IEventBus, InProcessEventBus>();
 builder.Services.AddScoped<IMediator, Mediator>();
 
-builder.Services.AddCatalogModule();
-
-// Add integration event handlers (inventory)
-builder.Services.AddScoped<IEventHandler<ProductCreated>, ProductCreatedEventHandler>();
+// Add modules
+builder.Services.AddCatalogModule(builder.Configuration.GetConnectionString("DefaultConnection"));
+builder.Services.AddInventoryModule(builder.Configuration.GetConnectionString("DefaultConnection"));
 
 var app = builder.Build();
 

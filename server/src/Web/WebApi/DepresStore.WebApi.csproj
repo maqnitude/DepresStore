@@ -13,8 +13,8 @@
 
   <ItemGroup>
     <ProjectReference Include="..\..\Shared\Infrastructure\DepresStore.Shared.Infrastructure.csproj" />
-    <ProjectReference Include="..\..\Modules\Inventory\Application\DepresStore.Modules.Inventory.Application.csproj" />
     <ProjectReference Include="..\..\Modules\Catalog\Composition\DepresStore.Modules.Catalog.Composition.csproj" />
+    <ProjectReference Include="..\..\Modules\Inventory\Composition\DepresStore.Modules.Inventory.Composition.csproj" />
   </ItemGroup>
 
 </Project>

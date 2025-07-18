@@ -6,7 +6,7 @@ namespace DepresStore.Modules.Catalog.Infrastructure.Data
 {
     public class CatalogDbContext : DbContext
     {
-        public const string Schema = "DepresStore.Catalog";
+        public const string Schema = "Catalog";
 
         public DbSet<Product> Products { get; set; }
 
