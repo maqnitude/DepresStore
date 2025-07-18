@@ -9,11 +9,19 @@ namespace DepresStore.Modules.Catalog.Infrastructure.Data.Configurations
     {
         public void Configure(EntityTypeBuilder<ProductVariant> builder)
         {
+            builder.ToTable("ProductVariants");
+
             builder.HasKey(pv => pv.Id);
             builder.Property(pv => pv.Id)
                 .HasConversion(
                     id => id.Value,
-                    value => new ProductVariantId(value));
+                    value => new ProductVariantId(value))
+                .ValueGeneratedNever();
+
+            builder.Property(pv => pv.ProductId)
+                .HasConversion(
+                    id => id.Value,
+                    value => new ProductId(value));
 
             builder
                 .HasIndex(pv => pv.Sku)
@@ -22,10 +30,26 @@ namespace DepresStore.Modules.Catalog.Infrastructure.Data.Configurations
             builder.OwnsMany(
                 pv => pv.Attributes, builder =>
                 {
-                    builder.Property(a => a.Key).IsRequired();
-                    builder.Property(a => a.Value).IsRequired();
-                    builder.Property(a => a.Type).IsRequired();
+                    builder.ToTable("ProductVariantAttributes");
+
+                    builder.Property(a => a.Key)
+                        .HasMaxLength(50)
+                        .IsRequired();
+
+                    builder.Property(a => a.Value)
+                        .HasMaxLength(250)
+                        .IsRequired();
+
+                    builder.Property(a => a.Type)
+                        .IsRequired();
                 });
+
+            // Product <one-to-many> ProductVariant
+            builder
+                .HasOne(pv => pv.Product)
+                .WithMany(p => p.ProductVariants)
+                .HasForeignKey(pv => pv.ProductId)
+                .IsRequired();
         }
     }
 }

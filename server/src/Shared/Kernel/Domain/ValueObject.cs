@@ -36,12 +36,12 @@ namespace DepresStore.Shared.Kernel.Domain
             return hashCode.ToHashCode();
         }
 
-        public static bool operator ==(ValueObject left, ValueObject right)
+        public static bool operator ==(ValueObject? left, ValueObject? right)
         {
             return Equals(left, right);
         }
 
-        public static bool operator !=(ValueObject left, ValueObject right)
+        public static bool operator !=(ValueObject? left, ValueObject? right)
         {
             return !Equals(left, right);
         }

@@ -15,13 +15,17 @@ namespace DepresStore.Modules.Catalog.Composition
 {
     public static class CatalogServiceCollectionExtensions
     {
-        public static IServiceCollection AddCatalogModule(this IServiceCollection services, string? connectionString)
+        public static IServiceCollection AddCatalogModule(
+            this IServiceCollection services,
+            string? connectionString)
         {
             services.AddDbContext<CatalogDbContext>(dbContextOptions =>
             {
                 dbContextOptions.UseSqlServer(connectionString, sqlServerOptions =>
                 {
-                    sqlServerOptions.MigrationsHistoryTable(HistoryRepository.DefaultTableName, CatalogDbContext.Schema);
+                    sqlServerOptions.MigrationsHistoryTable(
+                        HistoryRepository.DefaultTableName,
+                        CatalogDbContext.Schema);
                 });
             });
 

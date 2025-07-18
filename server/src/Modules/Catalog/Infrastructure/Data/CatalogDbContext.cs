@@ -1,4 +1,5 @@
 using DepresStore.Modules.Catalog.Domain.Entities;
+using DepresStore.Modules.Catalog.Domain.ValueObjects;
 using DepresStore.Modules.Catalog.Infrastructure.Data.Configurations;
 using Microsoft.EntityFrameworkCore;
 
@@ -24,10 +25,16 @@ namespace DepresStore.Modules.Catalog.Infrastructure.Data
         {
             modelBuilder.HasDefaultSchema(Schema);
 
-            new ProductConfiguration().Configure(modelBuilder.Entity<Product>());
-            new CategoryConfiguration().Configure(modelBuilder.Entity<Category>());
-            new ProductCategoryConfiguration().Configure(modelBuilder.Entity<ProductCategory>());
-            new ProductVariantConfiguration().Configure(modelBuilder.Entity<ProductVariant>());
+            // Ignore identity value objects
+            // ProductVariantAttribute is an owned type so don't ignore it
+            modelBuilder.Ignore<CategoryId>();
+            modelBuilder.Ignore<ProductId>();
+            modelBuilder.Ignore<ProductVariantId>();
+
+            modelBuilder.ApplyConfiguration(new CategoryConfiguration());
+            modelBuilder.ApplyConfiguration(new ProductConfiguration());
+            modelBuilder.ApplyConfiguration(new ProductCategoryConfiguration());
+            modelBuilder.ApplyConfiguration(new ProductVariantConfiguration());
         }
     }
 }

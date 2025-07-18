@@ -5,9 +5,9 @@ namespace DepresStore.Modules.Catalog.Domain.Entities
 {
     public class Category : AggregateRoot<CategoryId>
     {
-        public required string Name { get; set; }
-
         public CategoryId? ParentCategoryId { get; set; }
+
+        public required string Name { get; set; }
 
         // Navigations
         public Category? ParentCategory { get; set; }

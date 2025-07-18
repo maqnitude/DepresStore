@@ -9,17 +9,23 @@ namespace DepresStore.Modules.Catalog.Infrastructure.Data.Configurations
     {
         public void Configure(EntityTypeBuilder<Category> builder)
         {
+            builder.ToTable("Categories");
+
             builder.HasKey(c => c.Id);
             builder.Property(c => c.Id)
                 .HasConversion(
                     id => id.Value,
-                    value => new CategoryId(value));
+                    value => new CategoryId(value))
+                .ValueGeneratedNever();
+
+            builder.Property(c => c.ParentCategoryId)
+                .HasConversion(
+                    id => id != null ? id.Value : (Guid?)null,
+                    value => value.HasValue ? new CategoryId(value.Value) : null);
 
             builder.Property(c => c.Name)
                 .HasMaxLength(100)
                 .IsRequired();
-
-            // Many-to-many relationship with Product is configured in ProductConfiguration
 
             // Category <one-to-many> Category (Subcategory)
             builder

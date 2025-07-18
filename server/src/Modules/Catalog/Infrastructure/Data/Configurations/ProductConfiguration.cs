@@ -9,22 +9,28 @@ namespace DepresStore.Modules.Catalog.Infrastructure.Data.Configurations
     {
         public void Configure(EntityTypeBuilder<Product> builder)
         {
+            builder.ToTable("Products");
+
             builder.HasKey(p => p.Id);
-
-            // Product <many-to-many> Category via ProductCategory join entity
-            builder
-                .HasMany(p => p.Categories)
-                .WithMany(c => c.Products)
-                .UsingEntity<ProductCategory>();
-
             builder.Property(p => p.Id)
                 .HasConversion(
                     id => id.Value,
-                    value => new ProductId(value));
+                    value => new ProductId(value))
+                .ValueGeneratedNever();
 
             builder.Property(p => p.Name)
                 .HasMaxLength(100)
                 .IsRequired();
+
+            builder.Property(p => p.Description)
+                .HasMaxLength(500)
+                .IsRequired(false);
+
+            // Product <many-to-many> Category
+            builder
+                .HasMany(p => p.Categories)
+                .WithMany(c => c.Products)
+                .UsingEntity<ProductCategory>();
         }
     }
 }

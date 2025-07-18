@@ -13,7 +13,7 @@ namespace DepresStore.Modules.Catalog.Domain.Entities
         // Navigations
         public List<Category> Categories { get; } = [];
         public List<ProductCategory> ProductCategories { get; } = [];
-        public List<ProductVariant> Variants { get; } = [];
+        public List<ProductVariant> ProductVariants { get; } = [];
 
         public void ChangeName(string newName)
         {
