@@ -35,8 +35,8 @@ This is similar to event-driven microservices, but, since modular monolith is st
 
 `Shared.Kernel` is where all the building blocks like abstract classes, interfaces, value objects, and things that are shared between the modules.
 
-Since this is project is mainly for learning and researching I also tried to implement my own stuff like mediator and in-process event bus and the implementations are placed in the `Shared.Infrastructure` project. It's also referenced by `Api` to register the implementations in the DI container.
+Since this is project is mainly for learning and researching I also tried to implement my own stuff like mediator and in-process event bus and the implementations are placed in the `Shared.Infrastructure` project. It's also referenced by the `Api` project to register the implementations in the DI container.
 
 ## CQRS
 
-**_Work In Progress_**
+![CQRS](/media/images/cqrs.png)
