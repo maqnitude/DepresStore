@@ -13,19 +13,17 @@
 
 ## Project Structure Overview (Modular Monolith)
 
-Since this is a solo project both front-end and back-end are put in the same repo (monorepo). And instead of using folders like `frontend` and `backend`, I decided to use `client` for the client-side stuff (SPAs) and `server` for the server-side stuff (which includes both the back-end system and the customer-facing web app because it's server-side rendered).
-
 Here's a general overview of the project structure:
 
 ![ProjectStructure_Overview](/media/images/project-structure-overview.png)
 
-A solid arrow represents a dependency (a project reference). The dashed arrows are just for indicating that the web applications consume the REST API endpoints exposed by `WebApi`.
+A solid arrow represents a dependency (a project reference). The dashed arrows are just for indicating that the web apps consume the REST API endpoints.
 
 ### Modules
 
 Each bounded context is (usually) mapped to a module, similar to how a bounded context is usually mapped to a microservice. Most of the modules will follow an architectural style similar to that of clean architecture where the main focus is dependency inversion.
 
-Each module will have a `Composition` project to basically provide extension methods for `IServiceCollection` and register module-specific services to the DI container in the startup project, which is `WebApi`.
+Each module will have a `Composition` project to basically provide extension methods for `IServiceCollection` and register module-specific services to the DI container in the startup project, which is the `Api` project.
 
 Each module will also expose integration events (defined in the `IntegrationEvents` project) to other modules for inter-module communication:
 
@@ -37,7 +35,7 @@ This is similar to event-driven microservices, but, since modular monolith is st
 
 `Shared.Kernel` is where all the building blocks like abstract classes, interfaces, value objects, and things that are shared between the modules.
 
-Since this is project is mainly for learning and researching I also tried to implement my own stuff like mediator and in-process event bus and the implementations are placed in the `Shared.Infrastructure` project. It's also referenced by `WebApi` to register the implementations in the DI container.
+Since this is project is mainly for learning and researching I also tried to implement my own stuff like mediator and in-process event bus and the implementations are placed in the `Shared.Infrastructure` project. It's also referenced by `Api` to register the implementations in the DI container.
 
 ## CQRS
 
