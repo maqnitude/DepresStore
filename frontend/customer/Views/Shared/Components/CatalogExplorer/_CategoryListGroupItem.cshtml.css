@@ -1,0 +1,15 @@
+button[aria-expanded="true"] .bi-plus-lg {
+  display: none !important;
+}
+
+button[aria-expanded="true"] .bi-dash-lg {
+  display: block !important;
+}
+
+button[aria-expanded="false"] .bi-plus-lg {
+  display: block !important;
+}
+
+button[aria-expanded="false"] .bi-dash-lg {
+  display: none !important;
+}

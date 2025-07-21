@@ -1,0 +1,15 @@
+@model (List<Category> categories, string collapsableListGroupId)
+
+<ul class="list-group collapse mt-2" id="@Model.collapsableListGroupId">
+  @foreach (var category in @Model.categories)
+  {
+    if (category.Subcategories.Count > 0)
+    {
+      <partial name="_CategoryListGroupItem.cshtml" model="@category" />
+    }
+    else
+    {
+      <partial name="_LeafCategoryListGroupItem.cshtml" model="@category" />
+    }
+  }
+</ul>

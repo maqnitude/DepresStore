@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en" data-bs-theme="dark">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DepresStore - @ViewData["Title"]</title>
+  <link rel="icon" type="image/x-icon" href="~/favicon.ico">
+  <link rel="stylesheet" href="~/lib/bootstrap/css/bootstrap.min.css">
+  <link rel="stylesheet" href="~/lib/bootstrap-icons/font/bootstrap-icons.min.css">
+
+  <!-- This is needed for CSS isolation -->
+  <link rel="stylesheet" href="~/DepresStore.Web.styles.css">
+</head>
+
+<body>
+  <header>
+    <nav class="navbar navbar-expand-lg bg-body-tertiary">
+      <div class="container-fluid">
+        <a class="navbar-brand text-body-emphasis fw-bold"
+           asp-area="" asp-controller="Home" asp-action="Index">
+          DepresStore
+        </a>
+        <button class="navbar-toggler" type="button"
+                data-bs-toggle="collapse" data-bs-target="#dsNavbar"
+                aria-controls="dsNavbar" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="dsNavbar">
+          <ul class="navbar-nav">
+            <li class="nav-item">
+              <vc:catalog-explorer></vc:catalog-explorer>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <div class="container">
+    <main role="main">
+      @RenderBody()
+    </main>
+  </div>
+
+  <footer></footer>
+
+  <script src="~/lib/bootstrap/js/bootstrap.bundle.min.js"></script>
+  @await RenderSectionAsync("Scripts", false)
+</body>
+
+</html>

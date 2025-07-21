@@ -1,0 +1,15 @@
+@model List<Category>
+
+<ul class="list-group">
+  @foreach (var category in Model)
+  {
+    if (category.Subcategories.Count > 0)
+    {
+      <partial name="_CategoryListGroupItem.cshtml" model="@category" />
+    }
+    else
+    {
+      <partial name="_LeafCategoryListGroupItem.cshtml" model="@category" />
+    }
+  }
+</ul>
