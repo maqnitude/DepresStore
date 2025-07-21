@@ -3,6 +3,10 @@
 > [!NOTE]
 > This is not a real eCommerce system but an experimental project for learning and researching purposes where I try to apply DDD, CQRS and experiment with the modular monolith architecture. All business rules are made up.
 
+## Local Setup
+
+Use `libman restore` (see [Microsoft.Web.LibraryManager.Cli](https://learn.microsoft.com/en-us/aspnet/core/client-side/libman/libman-cli)) to restore the packages for the `DepresStore.Web` project (in `frontend/customer`).
+
 ## Bounded Contexts
 
 **_Work In Progress_**
