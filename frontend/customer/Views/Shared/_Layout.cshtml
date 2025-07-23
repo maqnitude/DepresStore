@@ -16,7 +16,7 @@
 <body>
   <header>
     <nav class="navbar navbar-expand-lg bg-body-tertiary">
-      <div class="container-fluid">
+      <div class="container">
         <a class="navbar-brand text-body-emphasis fw-bold"
            asp-area="" asp-controller="Home" asp-action="Index">
           DepresStore
@@ -27,11 +27,65 @@
           <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="dsNavbar">
-          <ul class="navbar-nav">
-            <li class="nav-item">
-              <vc:catalog-explorer></vc:catalog-explorer>
-            </li>
-          </ul>
+          <div class="row w-100 justify-content-between">
+            <!-- Left -->
+            <div class="col-auto">
+              <ul class="navbar-nav">
+                <li class="nav-item">
+                  <vc:catalog-explorer></vc:catalog-explorer>
+                </li>
+              </ul>
+            </div>
+            <!-- Center -->
+            <!-- TODO: Make a view component for this -->
+            <div class="col">
+              <div class="dropdown">
+                <form role="search">
+                  <div class="input-group">
+                    <input class="form-control" type="search" id="searchInput"
+                           placeholder="Search" aria-label="Search">
+                    <button class="btn btn-outline-secondary" type="submit">
+                      <i class="bi bi-search"></i>
+                    </button>
+                  </div>
+                </form>
+                <button class="d-none" type="button" id="searchDropdownToggle"
+                        data-bs-toggle="dropdown" aria-expanded="false">
+                </button>
+                <ul class="dropdown-menu w-100">
+                  <li class="d-flex justify-content-center">
+                    <span>Not found.</span>
+                  </li>
+                </ul>
+              </div>
+            </div>
+            <!-- Right -->
+            <!-- TODO: Make a view component for this -->
+            <div class="col-auto d-flex justify-content-end">
+              <div class="dropdown">
+                <button class="btn dropdown-toggle" type="button"
+                        data-bs-toggle="dropdown">
+                  Themes
+                </button>
+                <ul class="dropdown-menu dropdown-menu-end">
+                  <li>
+                    <button class="dropdown-item">
+                      <i class="bi bi-brightness-high-fill"></i>
+                      Light
+                    </button>
+                    <button class="dropdown-item">
+                      <i class="bi bi-moon-stars-fill"></i>
+                      Dark
+                    </button>
+                    <button class="dropdown-item">
+                      <i class="bi bi-circle-half"></i>
+                      System
+                    </button>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </nav>
@@ -46,6 +100,25 @@
   <footer></footer>
 
   <script src="~/lib/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      var searchInput = document.getElementById("searchInput");
+      var searchDropdownToggle = document.getElementById("searchDropdownToggle");
+
+      // Dropdown is not dropdown-menu
+      var searchDropdown = new bootstrap.Dropdown(searchDropdownToggle, {
+        autoClose: false
+      });
+
+      searchInput.addEventListener("focus", () => {
+        searchDropdown.show();
+      })
+
+      searchInput.addEventListener("blur", () => {
+        searchDropdown.hide();
+      });
+    });
+  </script>
   @await RenderSectionAsync("Scripts", false)
 </body>
 
