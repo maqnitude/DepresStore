@@ -1,7 +1,7 @@
 # DepresStore
 
 > [!NOTE]
-> This is not a real eCommerce system but an experimental project for learning and researching purposes where I try to apply DDD, CQRS and experiment with the modular monolith architecture. All business rules are made up.
+> This project aims to simulate an e-commerce system to practice the process of software engineering, explore full-stack development, and enhance techincal skills. It's not intended as a real system but serves as a learning tool inspired by real e-commerce platform and personal preferences.
 
 ## Local Setup
 
