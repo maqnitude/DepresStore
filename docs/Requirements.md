@@ -1,8 +1,8 @@
-# Requirements Specifcation
+# Requirements Specification
 
 ## 1. Scope
 
-The system will include core features commonly found in e-commerce sites. Most features will be simplified to ensure the project will remain achievable while provding opportunities to practice key software engineering principles and process.
+The system will include core features commonly found in e-commerce sites. Most features will be simplified to ensure the project will remain achievable while providing opportunities to practice key software engineering principles and process.
 
 ## 2. Functional Requirements
 

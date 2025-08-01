@@ -9,13 +9,15 @@ Details on the requirements can be found [here](/docs/Requirements.md).
 
 **_Work In Progress_**
 
+More details can be found in [here](/docs/Architecture.md).
+
 ## Project Structure Overview (Modular Monolith)
 
 Here's a general overview of the project structure:
 
 ![ProjectStructure_Overview](/media/images/project-structure-overview.png)
 
-More details can be found in [ProjectStructure.md](/docs/ProjectStructure.md).
+More details can be found in [here](/docs/ProjectStructure.md).
 
 ## Project Status
 
