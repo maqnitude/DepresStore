@@ -89,64 +89,28 @@ The system will include core features commonly found in e-commerce sites. Most f
 
 # Requirements Modeling
 
-Still working on this section
-
 ## 1. Actors
 
-- **Customer**: Authenticated users who buy products
-- **Admin**: Manages the system
-- **Identity provider**: Handles user authentication
-- **Payment gateway**: Processes and integrates with external payment services
-- **Delivery service**: Delivers products to customers via external services
+- **Customer**: User who buys products
+- **Admin**: User who manages the system
+- **Identity Provider**: Service for handling user authentication and authorization
+- **Payment Service**: External service for payment processing
+- **Delivery Service**: External service for delivery
 
 ## 2. Use Cases
 
-### 2.1 Customer Use Cases
+### [UC001] Customer authentication
 
-#### Customer purchases products
+![UseCase: CustomerAuthenticates](/media/diagrams/UC_CustomerAuthentication.png)
 
-#### Customer registers a new account
+### [UC002] Customer buys products
 
-#### Customer logs into an existing account
+![UseCase: CustomerBuysProducts](/media/diagrams/UC_CustomerBuysProducts.png)
 
-#### Customer forgot password
+**Exceptions**:
 
-#### Customer manages account
+- Customer is not authenticated at checkout (see [UC001](#uc001-customer-authentication))
 
-#### Customer edits profile
+### Admin authentication
 
-#### Customer subscribes to promotional emails
-
-#### Customer unsubscribes from promotional emails
-
-#### Customer changes email
-
-#### Customer changes password
-
-#### Customer deactivates account
-
-#### Customer manages orders
-
-#### Customer cancels orders
-
-#### Customer re-orders from past orders
-
-### 2.2 Admin Use Cases
-
-#### Admin logs into an existing account
-
-#### Admin manages products
-
-#### Admin disables products
-
-#### Admin manages categories
-
-#### Admin disables categories
-
-#### Admin manages orders
-
-#### Admin updates inventory
-
-#### Admin manages customer accounts
-
-#### Admin manages contents on customer home page
+![UseCase: AdminAuthentication](/media/diagrams/UC_AdminAuthenticationpng.png)
