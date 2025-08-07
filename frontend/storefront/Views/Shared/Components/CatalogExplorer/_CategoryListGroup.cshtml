@@ -1,7 +1,7 @@
-@model (List<Category> categories, string collapsableListGroupId)
+@model List<CategoryViewModel>
 
-<ul class="list-group collapse mt-2" id="@Model.collapsableListGroupId">
-  @foreach (var category in @Model.categories)
+<ul class="list-group">
+  @foreach (var category in Model)
   {
     if (category.Subcategories.Count > 0)
     {

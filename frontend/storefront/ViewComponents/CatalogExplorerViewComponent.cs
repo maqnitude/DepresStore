@@ -1,6 +1,6 @@
 using Microsoft.AspNetCore.Mvc;
 
-namespace DepresStore.Web.ViewComponents
+namespace DepresStore.Storefront.ViewComponents
 {
     public class CatalogExplorerViewComponent : ViewComponent
     {

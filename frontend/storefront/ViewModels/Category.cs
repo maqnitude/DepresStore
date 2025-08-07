@@ -1,14 +1,14 @@
-namespace DepresStore.Web.Models
+namespace DepresStore.Storefront.ViewModels
 {
-    public class Category
+    public class CategoryViewModel
     {
         public required string Name { get; set; }
 
-        public List<Category> Subcategories { get; set; } = [];
+        public List<CategoryViewModel> Subcategories { get; set; } = [];
 
-        public static List<Category> GetTestCategories()
+        public static List<CategoryViewModel> GetTestCategories()
         {
-            var categories = new List<Category>
+            var categories = new List<CategoryViewModel>
             {
                 new()
                 {

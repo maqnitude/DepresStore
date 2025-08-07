@@ -62,27 +62,32 @@
             <!-- Right -->
             <!-- TODO: Make a view component for this -->
             <div class="col-auto d-flex justify-content-end">
-              <div class="dropdown">
-                <button class="btn dropdown-toggle" type="button"
-                        data-bs-toggle="dropdown">
-                  Themes
+              <div class="d-flex flex-row gap-2">
+                <div class="dropdown">
+                  <button class="btn dropdown-toggle" type="button"
+                          data-bs-toggle="dropdown">
+                    <i class="bi bi-moon-stars-fill"></i>
+                  </button>
+                  <ul class="dropdown-menu dropdown-menu-end">
+                    <li>
+                      <button class="dropdown-item">
+                        <i class="bi bi-brightness-high-fill"></i>
+                        Light
+                      </button>
+                      <button class="dropdown-item">
+                        <i class="bi bi-moon-stars-fill"></i>
+                        Dark
+                      </button>
+                      <button class="dropdown-item">
+                        <i class="bi bi-circle-half"></i>
+                        System
+                      </button>
+                    </li>
+                  </ul>
+                </div>
+                <button class="btn btn-primary">
+                  Sign In
                 </button>
-                <ul class="dropdown-menu dropdown-menu-end">
-                  <li>
-                    <button class="dropdown-item">
-                      <i class="bi bi-brightness-high-fill"></i>
-                      Light
-                    </button>
-                    <button class="dropdown-item">
-                      <i class="bi bi-moon-stars-fill"></i>
-                      Dark
-                    </button>
-                    <button class="dropdown-item">
-                      <i class="bi bi-circle-half"></i>
-                      System
-                    </button>
-                  </li>
-                </ul>
               </div>
             </div>
           </div>

@@ -1,6 +1,6 @@
 using Microsoft.AspNetCore.Mvc;
 
-namespace DepresStore.Web.Controllers
+namespace DepresStore.Storefront.Controllers
 {
     public class HomeController : Controller
     {
