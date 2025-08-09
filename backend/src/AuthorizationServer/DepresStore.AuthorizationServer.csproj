@@ -7,20 +7,16 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Microsoft.AspNetCore.OpenApi" Version="8.0.18" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="8.0.*">
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
       <PrivateAssets>all</PrivateAssets>
     </PackageReference>
     <PackageReference Include="OpenIddict.AspNetCore" Version="7.0.0" />
     <PackageReference Include="OpenIddict.EntityFrameworkCore" Version="7.0.0" />
-    <PackageReference Include="Swashbuckle.AspNetCore" Version="6.6.2" />
+    <PackageReference Include="System.Linq.Async" Version="6.0.3" />
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Shared\Infrastructure\DepresStore.Shared.Infrastructure.csproj" />
-    <ProjectReference Include="..\Modules\Catalog\Composition\DepresStore.Modules.Catalog.Composition.csproj" />
-    <ProjectReference Include="..\Modules\Inventory\Composition\DepresStore.Modules.Inventory.Composition.csproj" />
     <ProjectReference Include="..\Modules\Identity\Composition\DepresStore.Modules.Identity.Composition.csproj" />
   </ItemGroup>
 

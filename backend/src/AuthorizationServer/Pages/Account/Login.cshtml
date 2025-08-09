@@ -1,0 +1,25 @@
+@page
+@model LoginModel
+
+<h2>Login</h2>
+<form autocomplete="off" method="post">
+  <input type="hidden" asp-for="ReturnUrl">
+  <div class="mb-2">
+    <label class="form-label" asp-for="Input.Email">Email</label>
+    <input class="form-control" asp-for="Input.Email">
+  </div>
+  <div class="mb-2">
+    <label class="form-label" asp-for="Input.Password">Password</label>
+    <input class="form-control" asp-for="Input.Password">
+  </div>
+  <div class="form-check mb-2">
+    <input class="form-check-input" asp-for="Input.RememberMe">
+    <label class="form-check-label" asp-for="Input.RememberMe">Remember Me?</label>
+  </div>
+  <div class="d-flex flex-row justify-content-between align-items-center">
+    <button type="submit" class="btn btn-primary">Login</button>
+    <span>
+      Don't have an account? <a asp-page="/Account/Register">Register</a>
+    </span>
+  </div>
+</form>

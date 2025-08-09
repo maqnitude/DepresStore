@@ -1,0 +1,25 @@
+@page
+@model RegisterModel
+
+<h2>Register</h2>
+<form autocomplete="off" method="post">
+  <input type="hidden" asp-for="ReturnUrl">
+  <div class="mb-2">
+    <label class="form-label" asp-for="Input.Email">Email</label>
+    <input class="form-control" asp-for="Input.Email">
+  </div>
+  <div class="mb-2">
+    <label class="form-label" asp-for="Input.Password">Password</label>
+    <input class="form-control" asp-for="Input.Password">
+  </div>
+  <div class="mb-2">
+    <label class="form-label" asp-for="Input.ConfirmPassword">Confirm Password</label>
+    <input class="form-control" asp-for="Input.ConfirmPassword">
+  </div>
+  <div class="d-flex flex-row justify-content-between align-items-center">
+    <button type="submit" class="btn btn-primary">Register</button>
+    <span>
+      Already have an account? <a asp-page="/Account/Login">Login</a>
+    </span>
+  </div>
+</form>
