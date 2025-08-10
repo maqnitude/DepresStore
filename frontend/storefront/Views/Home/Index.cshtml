@@ -2,6 +2,22 @@
   ViewData["Title"] = "Home Page";
 }
 
-<div class="text-center">
-  <h1 class="display-4">Welcome</h1>
-</div>
+@if (User.Identity!.IsAuthenticated)
+{
+  <div class="text-center">
+    <h1>Welcome, @User.Identity.Name!</h1>
+
+    <p>
+      @foreach (var claim in Context.User.Claims)
+      {
+      <div>@claim.Type: <b>@claim.Value</b></div>
+    }
+    </p>
+  </div>
+}
+else
+{
+  <div class="text-center">
+    <h1>Welcome, annonymous!</h1>
+  </div>
+}

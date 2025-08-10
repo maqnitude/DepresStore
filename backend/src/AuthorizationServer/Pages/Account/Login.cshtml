@@ -3,14 +3,17 @@
 
 <h2>Login</h2>
 <form autocomplete="off" method="post">
+  <div class="text-danger" asp-validation-summary="ModelOnly"></div>
   <input type="hidden" asp-for="ReturnUrl">
   <div class="mb-2">
     <label class="form-label" asp-for="Input.Email">Email</label>
     <input class="form-control" asp-for="Input.Email">
+    <span class="form-text text-danger" asp-validation-for="Input.Email"></span>
   </div>
   <div class="mb-2">
     <label class="form-label" asp-for="Input.Password">Password</label>
     <input class="form-control" asp-for="Input.Password">
+    <span class="form-text text-danger" asp-validation-for="Input.Password"></span>
   </div>
   <div class="form-check mb-2">
     <input class="form-check-input" asp-for="Input.RememberMe">
@@ -19,7 +22,11 @@
   <div class="d-flex flex-row justify-content-between align-items-center">
     <button type="submit" class="btn btn-primary">Login</button>
     <span>
-      Don't have an account? <a asp-page="/Account/Register">Register</a>
+      Don't have an account? <a asp-page="/Account/Register" asp-route-returnUrl="@Model.ReturnUrl">Register</a>
     </span>
   </div>
 </form>
+
+@section Scripts {
+  <partial name="_ValidationScriptsPartial" />
+}

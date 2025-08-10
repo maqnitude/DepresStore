@@ -28,7 +28,15 @@ namespace DepresStore.AuthorizationServer.Pages.Account
 
         public class RegisterInputModel
         {
+            [Required]
+            [StringLength(100)]
+            public required string FirstName { get; set; }
+
+            [StringLength(100)]
+            public string? LastName { get; set; }
+
             [Required, EmailAddress]
+            [StringLength(50)]
             public required string Email { get; set; }
 
             [Required, DataType(DataType.Password)]
@@ -62,6 +70,8 @@ namespace DepresStore.AuthorizationServer.Pages.Account
 
             var user = new User
             {
+                FirstName = Input.FirstName,
+                LastName = Input.LastName,
                 UserName = Input.Email,
                 Email = Input.Email
             };

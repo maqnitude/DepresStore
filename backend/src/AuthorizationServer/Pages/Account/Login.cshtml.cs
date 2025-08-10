@@ -72,7 +72,7 @@ namespace DepresStore.AuthorizationServer.Pages.Account
             _logger.LogInformation("Signing in user using password.");
 
             var result = await _signInManager.PasswordSignInAsync(
-                userName: user.UserName ?? user.Email ?? string.Empty,
+                userName: user.Email ?? user.UserName ?? string.Empty,
                 password: Input.Password,
                 isPersistent: Input.RememberMe,
                 lockoutOnFailure: false);

@@ -1,4 +1,5 @@
 using DepresStore.Modules.Identity.Domain.Entities;
+using DepresStore.Modules.Identity.Infrastructure.Data.Configurations;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 
@@ -16,6 +17,8 @@ namespace DepresStore.Modules.Identity.Infrastructure.Data
             modelBuilder.HasDefaultSchema(Schema);
 
             base.OnModelCreating(modelBuilder);
+
+            new UserConfiguration().Configure(modelBuilder.Entity<User>());
         }
     }
 }

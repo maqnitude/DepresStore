@@ -74,6 +74,42 @@ namespace DepresStore.AuthorizationServer
                     }
                 }, cancellationToken);
             }
+
+            if (await applicationManager.FindByClientIdAsync("storefront", cancellationToken) is null)
+            {
+                await applicationManager.CreateAsync(new OpenIddictApplicationDescriptor
+                {
+                    ClientId = "storefront",
+                    ClientSecret = "storefront-secret",
+                    DisplayName = "Storefront",
+                    RedirectUris =
+                    {
+                        new Uri("https://localhost:7002/callback/login/local")
+                    },
+                    PostLogoutRedirectUris =
+                    {
+                        new Uri("https://localhost:7002/callback/logout/local")
+                    },
+                    Permissions =
+                    {
+                        OpenIddictConstants.Permissions.Endpoints.Authorization,
+                        OpenIddictConstants.Permissions.Endpoints.Token,
+                        OpenIddictConstants.Permissions.Endpoints.EndSession,
+
+                        OpenIddictConstants.Permissions.GrantTypes.AuthorizationCode,
+
+                        OpenIddictConstants.Permissions.Scopes.Email,
+                        OpenIddictConstants.Permissions.Scopes.Profile,
+                        OpenIddictConstants.Permissions.Scopes.Roles,
+
+                        OpenIddictConstants.Permissions.ResponseTypes.Code
+                    },
+                    Requirements =
+                    {
+                        OpenIddictConstants.Requirements.Features.ProofKeyForCodeExchange
+                    }
+                }, cancellationToken);
+            }
         }
 
         public Task StopAsync(CancellationToken cancellationToken)

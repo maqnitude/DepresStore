@@ -74,10 +74,10 @@ namespace DepresStore.AuthorizationServer.Controllers
                 roleType: OpenIddictConstants.Claims.Role);
 
             claimsIdentity
+                // Subject is required
                 .SetClaim(OpenIddictConstants.Claims.Subject, await _userManager.GetUserIdAsync(user))
                 .SetClaim(OpenIddictConstants.Claims.Email, await _userManager.GetEmailAsync(user))
-                .SetClaim(OpenIddictConstants.Claims.PreferredUsername, await _userManager.GetUserNameAsync(user))
-                .SetClaim(OpenIddictConstants.Claims.Name, await _userManager.GetUserNameAsync(user))
+                .SetClaim(OpenIddictConstants.Claims.Name, user.FirstName + user.LastName)
                 .SetClaims(OpenIddictConstants.Claims.Role, (await _userManager.GetRolesAsync(user)).ToImmutableArray());
 
             claimsIdentity.SetScopes(request.GetScopes());
@@ -112,10 +112,10 @@ namespace DepresStore.AuthorizationServer.Controllers
 
                 // Override claims in case they changed since authorization code/refresh token was issued
                 claimsIdentity
+                    // Subject is required
                     .SetClaim(OpenIddictConstants.Claims.Subject, await _userManager.GetUserIdAsync(user))
                     .SetClaim(OpenIddictConstants.Claims.Email, await _userManager.GetEmailAsync(user))
-                    .SetClaim(OpenIddictConstants.Claims.PreferredUsername, await _userManager.GetUserNameAsync(user))
-                    .SetClaim(OpenIddictConstants.Claims.Name, await _userManager.GetUserNameAsync(user))
+                    .SetClaim(OpenIddictConstants.Claims.Name, user.FirstName + user.LastName)
                     .SetClaims(OpenIddictConstants.Claims.Role, (await _userManager.GetRolesAsync(user)).ToImmutableArray());
 
                 claimsIdentity.SetDestinations(GetDestinations);
@@ -128,16 +128,9 @@ namespace DepresStore.AuthorizationServer.Controllers
             throw new InvalidOperationException("The specified grant type is not supported.");
         }
 
+        // Logout confirmation will be performed on the client app
         [HttpGet("~/connect/logout")]
-        public IActionResult LogOut()
-        {
-            return View();
-        }
-
-        [HttpPost("~/connect/logout")]
-        [ValidateAntiForgeryToken]
-        [ActionName(nameof(LogOut))]
-        public async Task<IActionResult> LogOutPost()
+        public async Task<IActionResult> LogOut()
         {
             // Ask ASP.NET Core Identity to delete the cookies
             await _signInManager.SignOutAsync();

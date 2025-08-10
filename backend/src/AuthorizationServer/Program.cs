@@ -3,17 +3,12 @@ using DepresStore.Modules.Identity.Domain.Entities;
 using DepresStore.Modules.Identity.Infrastructure.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Migrations;
+using OpenIddict.Abstractions;
 
 var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddControllersWithViews();
 builder.Services.AddRazorPages();
-
-// builder.Services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)
-//     .AddCookie(CookieAuthenticationDefaults.AuthenticationScheme, options =>
-//     {
-//         options.LoginPath = "/Account/Login";
-//     });
 
 builder.Services.AddDbContext<AppIdentityDbContext>(dbContextOptions =>
 {
@@ -56,7 +51,12 @@ builder.Services.AddOpenIddict()
             .SetEndSessionEndpointUris("/connect/logout");
 
         options
-            .RegisterScopes("api");
+            .RegisterScopes(
+                OpenIddictConstants.Scopes.OpenId,
+                OpenIddictConstants.Scopes.Email,
+                OpenIddictConstants.Scopes.Profile,
+                OpenIddictConstants.Scopes.Roles,
+                "api");
 
         options
             .AddDevelopmentEncryptionCertificate()

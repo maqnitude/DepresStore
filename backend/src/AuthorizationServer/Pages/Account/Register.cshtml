@@ -3,23 +3,43 @@
 
 <h2>Register</h2>
 <form autocomplete="off" method="post">
+  <div class="text-danger" asp-validation-summary="ModelOnly"></div>
   <input type="hidden" asp-for="ReturnUrl">
+  <div class="mb-2 d-flex flex-row">
+    <div class="me-0">
+      <label class="form-label" asp-for="Input.FirstName">First Name</label>
+      <input class="form-control" asp-for="Input.FirstName">
+      <span class="form-text text-danger" asp-validation-for="Input.FirstName"></span>
+    </div>
+    <div>
+      <label class="form-label" asp-for="Input.LastName">Last Name</label>
+      <input class="form-control" asp-for="Input.LastName">
+      <span class="form-text text-danger" asp-validation-for="Input.LastName"></span>
+    </div>
+  </div>
   <div class="mb-2">
     <label class="form-label" asp-for="Input.Email">Email</label>
     <input class="form-control" asp-for="Input.Email">
+    <span class="form-text text-danger" asp-validation-for="Input.Email"></span>
   </div>
   <div class="mb-2">
     <label class="form-label" asp-for="Input.Password">Password</label>
     <input class="form-control" asp-for="Input.Password">
+    <span class="form-text text-danger" asp-validation-for="Input.Password"></span>
   </div>
-  <div class="mb-2">
+  <div class="mb-4">
     <label class="form-label" asp-for="Input.ConfirmPassword">Confirm Password</label>
     <input class="form-control" asp-for="Input.ConfirmPassword">
+    <span class="form-text text-danger" asp-validation-for="Input.ConfirmPassword"></span>
   </div>
   <div class="d-flex flex-row justify-content-between align-items-center">
     <button type="submit" class="btn btn-primary">Register</button>
     <span>
-      Already have an account? <a asp-page="/Account/Login">Login</a>
+      Already have an account? <a asp-page="/Account/Login" asp-route-returnUrl="@Model.ReturnUrl">Login</a>
     </span>
   </div>
 </form>
+
+@section Scripts {
+  <partial name="_ValidationScriptsPartial" />
+}
