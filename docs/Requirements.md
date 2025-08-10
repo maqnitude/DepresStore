@@ -78,9 +78,7 @@ The system will include core features commonly found in e-commerce sites. Most f
 - **Performance**:
   - Pages should load within 2 seconds under normal conditions
 - **Security**:
-  - Use password hashing (supported by ASP.NET Core Identity)
-  - Use HTTPS only
-  - JWT bearer authentication for API endpoints
+  - Authentication and authorization using OAuth 2.0 and OpenID Connect
 - **Usability**
   - Responsive design for desktop and mobile devices
   - Simple and easy to use interface
@@ -98,6 +96,9 @@ The system will include core features commonly found in e-commerce sites. Most f
 - **Delivery Service**: External service for delivery
 
 ## 2. Use Cases
+
+> [!WARNING]
+> Work in progress.
 
 ### [UC001] Customer authentication
 
