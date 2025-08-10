@@ -53,3 +53,7 @@ Run the projects with HTTPS profile for OpenIddict to work:
 ```
 dotnet run --launch-profile https
 ```
+
+## License
+
+This project is licensed under the MIT License.
