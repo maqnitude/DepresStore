@@ -5,7 +5,19 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Migrations;
 using OpenIddict.Abstractions;
 
+const string ReactSPAOrigins = "ReactSPAOrigins";
+
 var builder = WebApplication.CreateBuilder(args);
+
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy(name: ReactSPAOrigins, policy =>
+    {
+        policy.WithOrigins(
+            "http://localhost:3000",
+            "https://localhost:3000");
+    });
+});
 
 builder.Services.AddControllersWithViews();
 builder.Services.AddRazorPages();
@@ -78,6 +90,8 @@ app.UseHttpsRedirection();
 app.UseStaticFiles();
 
 app.UseRouting();
+
+app.UseCors(ReactSPAOrigins);
 
 app.UseAuthentication();
 app.UseAuthorization();

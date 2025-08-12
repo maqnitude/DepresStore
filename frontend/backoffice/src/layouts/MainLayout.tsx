@@ -11,6 +11,8 @@ import {
   Typography,
 } from "@mui/material";
 import { Link, Outlet } from "react-router";
+import ProfileMenu from "../components/ProfileMenu";
+import { useAuth } from "../features/auth/useAuth";
 
 interface DrawerLinkItem {
   text: string;
@@ -24,6 +26,12 @@ const drawerLinkItems: DrawerLinkItem[] = [
 ];
 
 function MainLayout() {
+  const { signoutRedirect } = useAuth();
+
+  const handleLogout = () => {
+    signoutRedirect();
+  };
+
   return (
     <Box sx={{ display: "flex" }}>
       <AppBar
@@ -73,6 +81,8 @@ function MainLayout() {
             </ListItem>
           ))}
         </List>
+
+        <ProfileMenu onLogout={handleLogout} />
       </Drawer>
       <Box component={"main"} sx={{ flexGrow: 1 }}>
         <Toolbar />

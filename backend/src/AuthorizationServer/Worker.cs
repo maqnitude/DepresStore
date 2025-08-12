@@ -11,6 +11,9 @@ namespace DepresStore.AuthorizationServer
     {
         private readonly IServiceProvider _serviceProvider;
 
+        private const string AdminEmail = "admin@example.com";
+        private const string AdminPassword = "Admin@123";
+
         public Worker(IServiceProvider serviceProvider)
         {
             _serviceProvider = serviceProvider;
@@ -40,6 +43,28 @@ namespace DepresStore.AuthorizationServer
             if (!await roleManager.RoleExistsAsync(RoleConstants.Customer))
             {
                 await roleManager.CreateAsync(new(RoleConstants.Customer));
+            }
+
+            // Seed admin
+
+            var userManager = scope.ServiceProvider.GetRequiredService<UserManager<User>>();
+
+            if (await userManager.FindByEmailAsync(AdminEmail) is null)
+            {
+                var adminUser = new User
+                {
+                    FirstName = "John",
+                    LastName = "Admin",
+                    UserName = AdminEmail,
+                    Email = AdminEmail
+                };
+
+                var result = await userManager.CreateAsync(adminUser, AdminPassword);
+
+                if (result.Succeeded)
+                {
+                    await userManager.AddToRoleAsync(adminUser, RoleConstants.Administrator);
+                }
             }
 
             // Seed OpenIddict client applications
@@ -89,6 +114,41 @@ namespace DepresStore.AuthorizationServer
                     PostLogoutRedirectUris =
                     {
                         new Uri("https://localhost:7002/callback/logout/local")
+                    },
+                    Permissions =
+                    {
+                        OpenIddictConstants.Permissions.Endpoints.Authorization,
+                        OpenIddictConstants.Permissions.Endpoints.Token,
+                        OpenIddictConstants.Permissions.Endpoints.EndSession,
+
+                        OpenIddictConstants.Permissions.GrantTypes.AuthorizationCode,
+
+                        OpenIddictConstants.Permissions.Scopes.Email,
+                        OpenIddictConstants.Permissions.Scopes.Profile,
+                        OpenIddictConstants.Permissions.Scopes.Roles,
+
+                        OpenIddictConstants.Permissions.ResponseTypes.Code
+                    },
+                    Requirements =
+                    {
+                        OpenIddictConstants.Requirements.Features.ProofKeyForCodeExchange
+                    }
+                }, cancellationToken);
+            }
+
+            if (await applicationManager.FindByClientIdAsync("backoffice", cancellationToken) is null)
+            {
+                await applicationManager.CreateAsync(new OpenIddictApplicationDescriptor
+                {
+                    ClientId = "backoffice",
+                    DisplayName = "Backoffice",
+                    RedirectUris =
+                    {
+                        new Uri("https://localhost:3000/login-callback")
+                    },
+                    PostLogoutRedirectUris =
+                    {
+                        new Uri("https://localhost:3000/logout-callback")
                     },
                     Permissions =
                     {
