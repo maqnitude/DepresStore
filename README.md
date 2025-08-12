@@ -41,16 +41,24 @@ More details can be found in [here](/docs/ProjectStructure.md).
 
 The projects will be running on these ports:
 
-- `backoffice`: `http://localhost:3000`
+- `backoffice`: `https://localhost:3000`
 - `DepresStore.Storefront`: `http://localhost:5002` and `https://localhost:7002`
 - `DepresStore.AuthorizationServer`: `http://localhost:5001` and `https://localhost:7001`
 - `DepresStore.Api`: `http://localhost:5000` and `https://localhost:7000`
+
+Use [`mkcert`](https://github.com/FiloSottile/mkcert) to create the local development certificates for Vite. `cd` into `frontend/backoffice` and create the key and cert files:
+
+```bash
+mkdir cert
+
+mkcert -key-file cert/localhost-key.pem -cert-file cert/localhost-cert.pem localhost
+```
 
 Use `libman restore` (see [Microsoft.Web.LibraryManager.Cli](https://learn.microsoft.com/en-us/aspnet/core/client-side/libman/libman-cli)) to restore the packages for the `DepresStore.Storefront` and `DepresStore.AuthorizationServer` projects.
 
 Run the projects with HTTPS profile for OpenIddict to work:
 
-```
+```bash
 dotnet run --launch-profile https
 ```
 
